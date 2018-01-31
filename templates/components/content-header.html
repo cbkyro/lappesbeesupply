@@ -1,0 +1,12 @@
+{{!--
+  Main Content Header - Used on top of many pages, often containing breadcrumbs
+  @param title        The title to be used in an h1 (optional)
+--}}
+
+<header class="content-header
+  {{#unless theme_settings.invert_header}}content-header-tinted{{else}}contained{{/unless}}">
+  <div class="header-wrap {{#unless theme_settings.invert_header}}contained{{/unless}}">
+    {{> components/common/breadcrumbs breadcrumbs}}
+    {{#if title}}<h1 class="page-title">{{{title}}}</h1>{{/if}}
+  </div>
+</header>

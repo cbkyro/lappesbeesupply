@@ -1,0 +1,32 @@
+{{!--
+  Display either the 'pages menu' or the 'categories menu'
+  depending on the theme setting.
+--}}
+
+
+<nav class="main-menu">
+  {{#if theme_settings.menu_sidebar '==' 'multi'}}
+    <div class="nav-multi-breadcrumbs">
+      <span class="nav-multi-breadcrumb reset-all" data-toggle-multi="all">{{lang 'header.menu'}}</span>
+    </div>
+    <div class="nav-multi-container">
+      <ul class="nav-multi-panel nav-multi-panel-parent is-active" data-panel-depth="0" data-multi-menu="all">
+        {{#each categories}}
+          <li class="nav-multi-item nav-multi-item-parent {{#if children}}has-children{{/if}}" >
+            {{> components/common/multi-level-nav-item}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else}}
+    <ul class="nav-menu">
+      {{#if theme_settings.menu_sidebar '==' 'brands'}}
+        {{> components/common/nav-menu menu=brands}}
+      {{else if theme_settings.menu_sidebar '==' 'categories'}}
+        {{> components/common/nav-menu menu=categories}}
+      {{else}}
+        {{> components/common/nav-menu menu=pages}}
+      {{/if}}
+    </ul>
+  {{/if}}
+</nav>

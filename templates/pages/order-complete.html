@@ -1,0 +1,8 @@
+{{#partial "page"}}
+<section class="contained">
+  {{> components/content-header title=(lang 'cart.order.complete_header')}}
+  <p>{{lang 'cart.order.complete_message'}}</p>
+  {{{snippet 'order_confirmation'}}}
+</section>
+{{/partial}}
+{{> layout/base}}

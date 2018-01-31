@@ -1,0 +1,66 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js ie8 lt-ie10 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9 lt-ie10"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="{{ locale_name }}">
+<!--<![endif]-->
+<head>
+
+  <title>{{head.title}}</title>
+
+  {{{head.meta_tags}}}
+  {{{head.config}}}
+
+  <link href="{{head.favicon}}" rel="shortcut icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
+  {{{stylesheet '/assets/css/theme.css'}}}
+
+  {{ getFontsCollection }}
+
+  {{{head.scripts}}}
+  {{{head.rsslinks}}}
+  {{inject 'themeImageSizes' theme_images}}
+  {{> components/global-injects}}
+  {{{snippet 'html_head'}}}
+</head>
+
+<body class="page-{{page_type}}
+  {{> components/common/body-classes}}">
+  {{{snippet 'header'}}}
+  {{#if page_type '===' 'product'}}
+    {{> components/common/facebook-like}}
+  {{else if page_type '===' 'blog_post'}}
+    {{> components/common/facebook-like}}
+  {{/if}}  {{> svg/sprite}}
+
+  <div class="drawer-wrapper">
+    {{> components/page/nav-bar compact=true}}
+    {{> components/page/sidebar}}
+  </div>
+
+  <div class="page-wrap">
+    <svg class="page-cover">{{! Covers page content when nav open. }}</svg>
+
+    {{> components/page-header}}
+
+    <main class="main-content">
+      {{#block "page"}}{{/block}}
+    </main>
+
+    {{> components/banner banners.bottom}}
+    {{> components/page-footer}}
+  </div>
+
+  <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+  <script>
+      window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+  </script>
+
+  <div class="footer-scripts contained">
+    {{{footer.scripts}}}
+  </div>
+  {{{snippet 'footer'}}}
+ 
+</body>
+</html>

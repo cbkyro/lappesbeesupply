@@ -1,0 +1,19 @@
+{{!--
+  Display either the 'pages menu' or the 'categories menu'
+  depending on the theme setting.
+--}}
+
+<ul class="nav-sitemap">
+  {{#if theme_settings.menu_footer '==' 'brands'}}
+    {{> components/common/nav-menu menu=shop_by_brand}}
+  {{else if theme_settings.menu_footer '==' 'categories'}}
+    {{> components/common/nav-menu menu=categories}}
+  {{else if theme_settings.menu_footer '==' 'pages'}}
+    {{> components/common/nav-menu menu=pages}}
+  {{else}}
+    {{> components/nav-sitemap}}
+  {{/if}}
+  {{#if theme_settings.show_sitemap}}
+    <li><a href="{{urls.sitemap}}">{{lang 'common.sitemap_title'}}</a></li>
+  {{/if}}
+</ul>

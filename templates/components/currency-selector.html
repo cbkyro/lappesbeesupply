@@ -1,0 +1,13 @@
+{{#if currency_selector.currencies.length ">" 1}}
+  <span class="currency-selector" data-currency-selector>
+    <label data-currency-selector-toggle>{{currency_selector.active_currency_code}}
+      <select>
+        {{#each currency_selector.currencies}}
+          <option value="{{{switch_url}}}" {{#if is_active}}selected{{/if}}>
+            {{name}}
+          </option>
+        {{/each}}
+      </select>
+    </label>
+  </span>
+{{/if}}

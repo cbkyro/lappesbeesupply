@@ -1,0 +1,129 @@
+{{! Leave a review }}
+
+<aside id="modal-review-form" class="review-modal-container">
+  <a href="#" class="modal-close">{{> svg/modal-close}}</a>
+
+  <div class="modal-body">
+
+    <div class="review-form-column">
+      <h2 class="review-form-heading section-title">{{lang 'product.reviews.write_review'}}</h2>
+      <form class="form" id="form-leave-a-review" action="{{urls.product.post_review}}" method="post">
+        {{#if product.reviews.throttleToken}}
+          <input type="hidden" name="throttleToken" value="{{product.reviews.throttleToken}}">
+        {{/if}}
+
+        {{!-- Clickable Stars --}}
+        <div class="form-field stars-form-field">
+          <div class="form-field-title">
+            {{lang 'product.reviews.rating_label'}}
+          </div>
+          <span class="form-field-control">
+            <fieldset class="input-stars form-fieldset">
+              <input checked type="radio" id="stars5" class="visually-hidden" name="revrating" value="5">
+              <label for="stars5" class="star" title="{{lang 'product.reviews.stars_count' NUM=5}}">
+                <svg class="star">
+                  <use xlink:href="#icon-star">
+                </svg>
+                <svg class="star-full">
+                  <use xlink:href="#icon-star-full">
+                </svg>
+                <span class="span visually-hidden">{{lang 'product.reviews.stars_count' NUM=5}}</span>
+              </label>
+              <input type="radio" id="stars4" class="visually-hidden" name="revrating" value="4">
+              <label for="stars4" class="star" title="{{lang 'product.reviews.stars_count' NUM=4}}">
+                <svg class="star">
+                  <use xlink:href="#icon-star">
+                </svg>
+                <svg class="star-full">
+                  <use xlink:href="#icon-star-full">
+                </svg>
+                <span class="span visually-hidden">{{lang 'product.reviews.stars_count' NUM=4}}</span>
+              </label>
+              <input type="radio" id="stars3" class="visually-hidden" name="revrating" value="3">
+              <label for="stars3" class="star" title="{{lang 'product.reviews.stars_count' NUM=3}}">
+                <svg class="star">
+                  <use xlink:href="#icon-star">
+                </svg>
+                <svg class="star-full">
+                  <use xlink:href="#icon-star-full">
+                </svg>
+                <span class="span visually-hidden">{{lang 'product.reviews.stars_count' NUM=3}}</span>
+              </label>
+              <input type="radio" id="stars2" class="visually-hidden" name="revrating" value="2">
+              <label for="stars2" class="star" title="{{lang 'product.reviews.stars_count' NUM=2}}">
+                <svg class="star">
+                  <use xlink:href="#icon-star">
+                </svg>
+                <svg class="star-full">
+                  <use xlink:href="#icon-star-full">
+                </svg>
+                <span class="span visually-hidden">{{lang 'product.reviews.stars_count' NUM=2}}</span>
+              </label>
+              <input type="radio" id="stars1" class="visually-hidden" name="revrating" value="1">
+              <label for="stars1" class="star" title="{{lang 'product.reviews.stars_count' NUM=1}}">
+                <svg class="star">
+                  <use xlink:href="#icon-star">
+                </svg>
+                <svg class="star-full">
+                  <use xlink:href="#icon-star-full">
+                </svg>
+                <span class="span visually-hidden">{{lang 'product.reviews.stars_count' NUM=1}}</span>
+              </label>
+            </fieldset>
+          </span>
+        </div>
+
+        {{!-- Name --}}
+        <div class="form-field form-field-text">
+          <label class="form-label" for="rating-name">
+            <div class="form-field-title">{{lang 'product.reviews.form.name'}}</div>
+            <span class="form-field-control">
+              <input id="rating-name" class="form-input" type="text" placeholder="{{lang 'product.reviews.form.your_name'}}" name="revfromname" required>
+            </span>
+          </label>
+        </div>
+
+        {{!-- Email --}}
+        <div class="form-field form-field-text">
+          <label class="form-label" for="rating-email">
+            <div class="form-field-title">{{lang 'product.reviews.form.email'}}</div>
+            <span class="form-field-control">
+              <input id="rating-email" class="form-input" type="email" name="email" placeholder="{{lang 'product.reviews.form.your_email'}}" required>
+            </span>
+          </label>
+        </div>
+
+        {{!-- Subject --}}
+        <div class="form-field form-field-text">
+          <label class="form-label" for="rating-title">
+            <div class="form-field-title">{{lang 'product.reviews.form.subject'}}</div>
+            <span class="form-field-control">
+              <input id="rating-title" class="form-input" type="text" placeholder="{{lang 'product.reviews.form.your_subject'}}" name="revtitle" required>
+            </span>
+          </label>
+        </div>
+
+        {{!-- Comments --}}
+        <div class="form-field form-field-text">
+          <label class="form-label" for="rating-comment">
+            <div class="form-field-title">{{lang 'product.reviews.form.comments'}}</div>
+            <span class="form-field-control">
+              <textarea id="rating-comment" class="form-input" name="revtext" placeholder="{{lang 'product.reviews.form.your_comments'}}" rows="4" required></textarea>
+            </span>
+          </label>
+        </div>
+
+        {{!-- Captcha --}}
+        {{#if product.reviews.captcha}}
+          {{> core/forms/common/captcha captcha=product.reviews.captcha name=recaptcha_response_field}}
+        {{/if}}
+
+        <input type="hidden" name="product_id" value="{{product.id}}" />
+        <input type="hidden" name="action" value="post_review" />
+
+        <input type="submit" class="form-submit button button-primary" value="{{lang 'product.reviews.form.submit'}}">
+      </form>
+    </div>
+
+  </div>
+</aside>

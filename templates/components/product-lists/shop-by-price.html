@@ -1,0 +1,22 @@
+{{!--
+  Shop by Price Sidebar block
+  Shows a list of price ranges to narrow results
+
+  @param this   listtype.shop_by_price
+    The "shop_by_price" object from categories / search / etc
+--}}
+
+{{#if this.length}}
+  <nav class="sidebar-block">
+    <h2 class="sidebar-title">{{lang 'unfaceted_search.shop_by_price'}}</h2>
+    <ul class="shop-by-price-list">
+      {{#each this}}
+        <li class="shop-by-price-item">
+          <a class="shop-by-price-action {{#if selected}}active{{/if}}" href="{{url}}"
+            title="{{low.formatted}} - {{high.formatted}}">{{low.formatted}} - {{high.formatted}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+{{/if}}

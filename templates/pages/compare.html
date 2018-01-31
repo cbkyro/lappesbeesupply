@@ -1,0 +1,76 @@
+{{!--
+  Compare Page Template
+  Shows a selection of product for comparison.
+--}}
+
+{{#partial "page"}}
+
+  {{> components/content-header title="Compare"}}
+
+  <section class="contained compare-page">
+
+    {{#each comparisons}}
+      <article class="compare-column">
+        <div class="compare-details">
+          {{> components/common/image
+            img=image
+            size="large"
+            not-lazy="true"
+            ratio=../theme_settings.image-ratio-grid
+          }}
+
+          {{> components/reviews/ratings
+            rating=rating
+          }}
+
+          <h3 class="item-title">
+            <a href="{{url}}">{{name}}</a>
+          </h3>
+
+          {{> components/product/price
+            price=price
+          }}
+
+          {{#if ../theme_settings.use_quickshop}}
+            <a
+              href="#"
+              class="button button-secondary"
+              data-quick-shop="{{id}}"
+            >
+              {{lang 'common.quickview'}}
+            </a>
+          {{/if}}
+
+          <a
+            class="compare-remove-link"
+            href="{{remove_url}}"
+          >
+            {{lang 'common.compare.remove_item'}}
+          </a>
+        </div>
+
+        <h2 class="compare-table-heading">
+          {{lang 'common.compare.description_header'}}
+        </h2>
+
+        <div class="compare-details">{{{summary}}}</div>
+
+        <h2 class="compare-table-heading">
+          {{lang "common.compare.availability_header"}}
+        </h2>
+
+        <div class="compare-details">
+          {{#if availability}}
+            {{availability}}
+          {{else}}
+            {{lang 'common.compare.not_avail'}}
+          {{/if}}
+        </div>
+      </article>
+    {{/each}}
+
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

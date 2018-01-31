@@ -1,0 +1,47 @@
+{{!--
+  Cart Item: an individual product item shown on the shopping cart page.
+--}}
+
+<article class="cart-item" data-cart-item data-item-id="{{id}}">
+
+  {{! Image }}
+  <div class="cart-item-image">
+    {{> components/common/image
+      img=image
+      image-ratio='ratio-any'
+      size="small"
+      default=default-image
+      not-lazy=true
+    }}
+  </div>
+
+  {{! Product name and Options }}
+  <div class="cart-item-details">
+    <h3 class="item-title cart-item-title"><a href="{{url}}">{{{name}}}</a></h3>
+    {{> components/cart/cart-item-options this}}
+    {{> components/cart/gift-wrap-item this}}
+  </div>
+
+  {{! Quantity }}
+  <div class="cart-item-quantity">
+    {{> components/common/quantity this nolabel=true}}
+  </div>
+
+  {{! Price }}
+  <div class="price cart-item-price">
+    {{#if total_discounted}}
+    <span class="cart-item-price-discounted">{{total.formatted}}</span>
+      {{total_discounted.formatted}}
+    {{else}}
+      {{total.formatted}}
+    {{/if}}
+  </div>
+
+  {{! Remove Item }}
+  <div class="cart-item-remove-wrapper">
+    <a class="cart-item-remove" href="{{remove_url}}" data-cart-item-remove>
+      {{> svg/ex}}
+    </a>
+  </div>
+
+</article>

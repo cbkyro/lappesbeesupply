@@ -1,0 +1,72 @@
+<a href="#" class="button-modal-close modal-close">{{> svg/modal-close}}</a>
+
+<div class="modal-body"
+  data-product-container
+  data-product-details
+  data-product-title="{{product.title}}">
+
+  <div class="quick-shop-image-column">
+    {{! Product Image}}
+    {{#if product.images}}
+      <div class="quick-shop-primary-image" data-quickshop-images-primary>
+        {{#each product.images}}
+          <img src="{{getImage this "productlist" (cdn default)}}" alt="{{{this.alt}}}" data-product-image>
+        {{/each}}
+      </div>
+      {{#if product.images.length ">" 1}}
+        <div class="quick-shop-secondary-image" data-quickshop-images-secondary>
+          {{#each product.images}}
+            <div class="qs-img-wrapper{{#if @first}} active{{/if}}">
+              {{> components/common/image
+                img=this
+                size=thumbnail
+                image-ratio=../theme_settings.image_ratio_grid
+                default-image=../../theme_settings.default_image
+                not-lazy=true
+              }}
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+    {{else}}
+      {{! There is no image, show the default}}
+      {{> components/common/image
+        url=""
+        size='productList'
+        default=theme_settings.default_image
+        alt=alt
+      }}
+    {{/if}}
+  </div>
+
+  <div class="quick-shop-info-column product-block">
+
+    {{! Title }}
+    <h1 class="product-title" data-product-title="{{product.title}}">{{product.title}}</h1>
+
+    {{! Price }}
+    {{> components/product/price price=product.price schema_org=true show_savings=true}}
+
+    <a class="quick-shop-full-details-link" href="{{product.url}}">{{lang 'common.view_full'}}</a>
+
+    {{! Description }}
+    <div class="product-information-description">
+      <div class="product-summary" data-excerpt-length="188">{{{product.description}}}</div>
+      <a class="more-link" href="{{product.url}}">{{lang 'common.more'}}</a>
+    </div>
+
+    {{! Messages }}
+    <div data-product-message></div>
+
+    {{! Messages }}
+    {{#unless product.out_of_stock_message}}
+      <link itemprop="availability" href="http://schema.org/InStock">
+    {{else}}
+      <link itemprop="availability" href="http://schema.org/OutOfStock">
+    {{/unless}}
+
+    {{! Add to Cart Form }}
+    {{> components/product/add-to-cart-form quickshop=true}}
+  </div>
+
+</div>

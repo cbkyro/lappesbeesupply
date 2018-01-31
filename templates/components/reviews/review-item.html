@@ -1,0 +1,25 @@
+{{!--
+  Product Review Item
+  An individual customer review as displayed on products.
+--}}
+
+<article class="review-item {{class}}" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+  <header class="review-item-header">
+    <h3 class="review-title">{{title}}</h3>
+
+    <div class="review-item-stars" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+      {{> components/reviews/ratings rating=rating size=true}}
+      <span class="review-item-score visually-hidden" itemprop="ratingValue">
+        {{rating}}/5
+      </span>
+    </div>
+  </header>
+
+  <div class="review-item-body" itemprop="reviewBody">{{{text}}}</div>
+
+  <div class="review-item-meta">
+    <meta itemprop="author" content="{{name}}">
+    {{lang 'product.reviews.posted_by_on' name=name date=date}}
+  </div>
+</article>

@@ -1,0 +1,25 @@
+
+<form class="form search {{#if mini}}mini-search{{/if}}" action="{{urls.search}}">
+  <fieldset class="form-fieldset">
+
+    <label class="form-label visually-hidden" for="search_query_adv">
+      {{lang 'search.title'}}
+    </label>
+
+    {{#if navbar}}<input type="checkbox" id="mini-search-toggle">{{/if}}
+
+    <div class="search-wrapper">
+      {{#if mini}}{{> svg/search}}{{/if}}
+      <input
+        class="form-input"
+        id="search_query_adv"
+        name="search_query_adv"
+        value="{{forms.search.query}}"
+        placeholder="{{lang 'search.placeholder'}}"
+        required>
+      <button class="button" type="submit">{{#unless mini}}{{lang 'search.title'}}{{/unless}}</button>
+      {{#if navbar}}<label for="mini-search-toggle" class="mini-search-toggle-label">{{> svg/ex}}</label>{{/if}}
+    </div>
+
+  </fieldset>
+</form>

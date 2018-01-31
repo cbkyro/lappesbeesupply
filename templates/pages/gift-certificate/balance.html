@@ -1,0 +1,16 @@
+{{#partial "page"}}
+
+  {{> components/content-header}}
+
+  <section class="page-with-sidebar page-giftcard contained contained-narrow">
+    {{> components/giftcards/navigation gift_page='balance'}}
+
+    <div class="page-main-content">
+      <h1 class="post-title">{{lang 'gift_certificate.balance.heading'}}</h1>
+      {{> core/gift-certificate/balance}}
+    </div>
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

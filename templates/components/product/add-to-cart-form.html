@@ -1,0 +1,66 @@
+{{!--
+  Add To Cart Form -- As displayed within a full product page.
+--}}
+
+<form
+  class="form add-to-cart-form{{#unless quickshop}}-full{{/unless}}"
+  method="post"
+  action="{{product.cart_url}}"
+  enctype="multipart/form-data"
+  data-product-options-count="{{product.options.length}}"
+  data-cart-item-add>
+  <input type="hidden" name="action" value="add">
+  <input type="hidden" name="product_id" value="{{product.id}}" data-product-id>
+
+  <div data-product-option-change>
+    {{#if product.options}}
+      {{#each product.options}}
+        {{{dynamicComponent 'core/forms/options'}}}
+      {{/each}}
+    {{/if}}
+
+    {{#if product.customizations}}
+      {{#each product.customizations}}
+        {{{dynamicComponent 'core/forms/customizations'}}}
+      {{/each}}
+    {{/if}}
+
+    {{#if product.event_date}}
+      {{> core/products/event}}
+    {{/if}}
+
+    {{#if product.can_purchase}}
+      {{> components/common/quantity product}}
+    {{/if}}
+  </div>
+
+  <div class="product-cart-messages">
+    <div data-product-cart-message>{{!-- Add to cart alerts --}}</div>
+    {{#if product.can_purchase}}
+      <div data-product-option-message>{{!-- Product option change alerts --}}</div>
+    {{/if}}
+  </div>
+
+  <div class="form-field add-to-cart-buttons" data-product-add>
+
+    {{#if product.can_purchase}}
+      {{#if product.pre_order}}
+        <input class="button button-inverted" type="submit" value="{{lang 'product.pre_order'}}" data-button-purchase data-button-preorder>
+      {{else}}
+        <input class="button button-inverted" type="submit" value="{{lang 'product.add_to_cart'}}" data-button-purchase>
+      {{/if}}
+    {{else}}
+      {{#if product.out_of_stock}}
+        <div class="button button-inverted button-disabled">
+          {{lang 'product.sold_out'}}
+        </div>
+      {{/if}}
+    {{/if}}
+
+    {{#if settings.show_wishlist}}
+      <a class="button button-inverted button-square" href="{{product.add_to_wishlist_url}}">{{> svg/heart}}</a>
+      <span class="spinner"></span>
+    {{/if}}
+
+  </div>
+</form>

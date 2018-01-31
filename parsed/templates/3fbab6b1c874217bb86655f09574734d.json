@@ -1,0 +1,1 @@
+{"components/cart/mini-cart-count":"{{! Cart Count / Toggle - link to cart page on smallest screens. }}\n\n{{#if cart.quantity '>' 0}}\n  <span class=\"cart-count\" data-cart-preview-count=\"{{cart.quantity}}\">\n    <span class=\"cart-count-circle\"></span>\n  </span>\n{{/if}}\n"}

@@ -1,0 +1,16 @@
+{{!--
+  Subcategories Block - Shows the product subcategories in the sidebar.
+--}}
+
+{{#if subcategories}}
+  <div class="sidebar-block subcategories-block">
+    <h3 class="facet-block-title">{{lang 'category.title'}}</h3>
+    <ul class="sidebar-categories">
+      {{#each subcategories}}
+        <li class="subcategory">
+          <a href="{{url}}">{{{name}}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

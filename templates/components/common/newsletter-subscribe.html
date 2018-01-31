@@ -1,0 +1,21 @@
+<form class="form" action="{{urls.subscribe.action}}" method="post">
+  <input type="hidden" name="action" value="subscribe">
+  <input type="hidden" name="nl_first_name" value="bc">
+  <input type="hidden" name="check" value="1">
+  <fieldset class="newsletter-subscribe">
+    <label class="visually-hidden" for="nl_email">{{lang 'common.newsletter.email_placeholder'}}</label>
+    <div class="input-wrap-outer">
+    <input class="button" type="submit" value="{{lang 'common.newsletter.submit'}}">
+      <div class="input-wrap">
+        <input
+          class="form-input"
+          id="nl_email"
+          name="nl_email"
+          type="email"
+          value="{{customer.email}}"
+          required
+          placeholder="{{lang 'common.newsletter.email_placeholder'}}">
+      </div>
+    </div>
+  </fieldset>
+</form>

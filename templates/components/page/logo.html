@@ -1,0 +1,11 @@
+{{!-- Logo Image or Text displayed in Branding region. --}}
+
+<div class="store-logo">
+  {{#if settings.store_logo.image}}
+    <a class="logo-image" href="{{urls.home}}" alt="{{settings.store_name}}">
+      <img src="{{getImage settings.store_logo.image 'logo'}}" alt="{{getImage settings.store_logo.image.alt}}">
+    </a>
+  {{else}}
+    <h1 class="logo-text"><a href="{{urls.home}}">{{settings.store_logo.title}}</a></h1>
+  {{/if}}
+</div>

@@ -1,0 +1,18 @@
+<ul class="{{#if start_collapsed}}hidden{{/if}}" data-facet-filter-wrapper>
+  {{#each items}}
+    <li class="facet-item" data-facet-item>
+      <a
+        class="facet-rating-link"
+        href="{{url}}"
+        rel="nofollow"
+        data-faceted-search-facet>
+        {{> components/reviews/ratings rating=param_value}}
+        {{#if ../show_product_counts}}
+          <span data-facet-item-count>
+            ({{#if count}}{{count}}{{else}}0{{/if}})
+          </span>
+        {{/if}}
+      </a>
+    </li>
+  {{/each}}
+</ul>

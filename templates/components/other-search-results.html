@@ -1,0 +1,11 @@
+{{!-- Showing individual blog and page results on the search page --}}
+
+{{#each content_results}}
+  <article class="search-result content-result">
+    <h3 class="search-result-title"><a href="{{url}}">{{title}}</a></h3>
+    <p>{{content}}</p>
+    <p class="content-result-type">{{type}}</p>
+  </article>
+{{/each}}
+
+{{> components/common/pagination pagination.content_results}}

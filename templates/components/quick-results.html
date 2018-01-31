@@ -1,0 +1,29 @@
+<div class="quick-search-inner">
+  <p class="quick-search-results">
+    {{lang 'search.quick_count' count=pagination.product_results.total search_query=forms.search.query}}
+  </p>
+  {{#if product_results.products}}
+    <ul class="quick-search-list">
+      {{#each product_results.products}}
+        <li>
+          <a class="quick-search-item" href="{{url}}">
+            <div class="quick-search-item-image">
+              {{> components/common/image
+                url=""
+                img=image
+                size='productlist'
+                default=../../theme_settings.default_image
+                alt=image.alt
+                not-lazy=true
+              }}
+            </div>
+            <div class="quick-search-item-info">
+              <div class="quick-search-item-title" href="{{url}}">{{name}}</div>
+              <div class="quick-search-item-brand">{{brand.name}}</div>
+            </div>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>

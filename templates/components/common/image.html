@@ -1,0 +1,57 @@
+{{!--
+  Helper to display any image with alt text. Pass in
+  @param img         The image object
+  @param size        The preset size to use.
+  @param url         Optional: Set the url this image should link to.
+  @param default     Default image to display
+  @param image-ratio   The image class to apply to the wrapping element.
+  @param not-lazy    Optional: do not lazy load (mainly used for ajax-loaded images)
+--}}
+
+{{#if not-lazy}}
+  {{#if url}}
+    <a class="replaced-image {{image-ratio}} {{#unless img}}no-image{{/unless}}"
+      href="{{url}}"
+      style="background-image: url({{getImage img size (cdn default)}});"
+    >
+      <img
+        src="{{getImage img size (cdn default)}}"
+        alt="{{image.alt}}"
+      >
+    </a>
+  {{else}}
+    <div
+      class="replaced-image {{image-ratio}} {{#unless img}}no-image{{/unless}}"
+      style="background-image: url({{getImage img size (cdn default)}});"
+    >
+      <img
+        src="{{getImage img size (cdn default)}}"
+        alt="{{image.alt}}"
+      >
+    </div>
+  {{/if}}
+{{else}}
+  {{#if url}}
+    <a class="lazy-image replaced-image {{image-ratio}} {{#unless img}}no-image{{/unless}}"
+      href="{{url}}"
+      data-src="{{getImage img size (cdn default)}}"
+    >
+      <img
+        class="lazy-image"
+        data-src="{{getImage img size (cdn default)}}"
+        alt="{{image.alt}}"
+      >
+    </a>
+  {{else}}
+    <div
+      class="lazy-image replaced-image {{image-ratio}} {{#unless img}}no-image{{/unless}}"
+      data-src="{{getImage img size (cdn default)}}"
+    >
+      <img
+        class="lazy-image"
+        data-src="{{getImage img size (cdn default)}}"
+        alt="{{image.alt}}"
+      >
+    </div>
+  {{/if}}
+{{/if}}

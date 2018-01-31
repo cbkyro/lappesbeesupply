@@ -1,0 +1,30 @@
+{{!--
+  Blog Item - A single blog entry as displayed in a list.
+--}}
+
+<article class="blog-item">
+
+  <h2 class="item-title"><a href="{{url}}">{{{title}}}</a></h2>
+  <time class="timestamp">{{date_published}}</time>
+
+  {{#if thumbnail}}
+    <figure class="blog-item-image">
+      {{> components/common/image
+        img=thumbnail
+        size='blog_large'
+        url=url
+        default=default-image
+        image-ratio="ratio-gold"
+      }}
+    </figure>
+  {{/if}}
+
+  <div class="blog-item-content">
+
+    <div class="blog-content-summary">
+      {{{summary}}}
+    </div>
+
+    <a class="read-more-link" href="{{url}}">Read More</a>
+  </div>
+</article>

@@ -1,0 +1,68 @@
+<div class="nav-bar">
+  <div class="nav-bar-inner{{#if theme_settings.navbar_all_caps}} navbar-allcaps{{/if}}">
+
+    <div class="header-components">
+
+      {{#if compact}}
+        {{! Nav Drawer Toggle }}
+        <button class="main-nav-button"
+          aria-label="{{lang 'common.menu'}}"
+          role="button"
+          tabindex="0"
+          data-main-nav-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      {{else}}
+        {{! Back to Content toggle }}
+        {{#block "page-header"}}{{/block}}
+      {{/if}}
+
+    </div>
+
+    {{#if compact}}
+      {{! Logo }}
+      {{> components/page/logo}}
+    {{/if}}
+
+    <div class="header-components">
+      {{#unless compact}}
+
+        {{! Currency Switcher }}
+        {{> components/currency-selector}}
+
+        {{! Account Links }}
+        <span class="nav-bar-account-link">
+          {{#if customer }}
+            <a href="{{urls.account.index}}"><span>Account</span></a> /
+            <a href="{{urls.auth.logout}}">Log Out</a>
+          {{else}}
+            <a href="{{urls.auth.login}}"><span>Account</span></a>
+          {{/if}}
+        </span>
+
+        {{! Cart }}
+        <span class="header-mini-cart" data-mini-cart>
+          {{> components/cart/mini-cart minicart=true}}
+        </span>
+
+        {{! Search }}
+        {{> components/search-box mini=true navbar=true}}
+
+        <div class="quick-search" data-quick-search>
+          <div class="spinner la-ball-clip-rotate"><div></div></div>
+        </div>
+
+      {{else}}
+
+        {{! Mini Cart - requires a wrapper for ajax content to load into}}
+        <span class="header-mini-cart" data-mini-cart>
+          {{> components/cart/mini-cart minicart=false}}
+        </span>
+
+      {{/unless}}
+    </div>
+
+  </div>
+</div>

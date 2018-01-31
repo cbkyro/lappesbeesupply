@@ -1,0 +1,36 @@
+{{inject 'couponCodeEmptyInput' (lang 'cart.coupon_codes.error')}}
+
+<aside class="cart-totals-block cart-totals-coupons" data-coupon-codes>
+  <h2 class="cart-block-title">{{lang 'cart.coupon_codes.coupon_code'}}</h2>
+
+  {{#if cart.coupons}}
+    {{#each cart.coupons}}
+      {{lang 'cart.coupon_codes.label' code=code}}
+      <a href="{{remove_url}}">({{lang 'cart.coupon_codes.remove'}})</a>
+      {{discount.formatted}}
+    {{/each}}
+  {{/if}}
+
+  <div>
+    <p>{{lang 'cart.coupon_codes.enter_code'}}</p>
+
+    <form class="form" method="post" action="{{urls.cart}}" data-coupon-code-form>
+        <input type="hidden" name="action" value="applycoupon">
+        <button class="button" type="submit">
+          {{lang 'cart.coupon_codes.submit'}}
+        </button>
+        <div class="input-wrap">
+          <input
+            class="form-input"
+            id="couponcode"
+            type="text"
+            name="search_query_adv"
+            value=""
+            placeholder="{{lang 'cart.coupon_codes.coupon_code'}}"
+            data-coupon-code-input>
+        </div>
+    </form>
+    <div data-coupon-errors></div>
+
+  </div>
+</aside>

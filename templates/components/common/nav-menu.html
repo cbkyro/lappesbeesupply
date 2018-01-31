@@ -1,0 +1,27 @@
+{{!--
+  Main Navigation Menu: Loops over a menu object and displays the list
+  @param menu   The menu object to loop over.
+--}}
+{{#each menu}}
+  <li class="nav-menu-item{{#if children}} menu-dropdown{{/if}}" >
+    <span class="nav-menu-item-wrapper"><a href="{{url}}">{{name}}</a></span>
+    {{#if children}}
+      <ul class="dropdown">
+        {{#each children}}
+          <li>
+            <a href="{{url}}">{{name}}</a>
+            {{#if children}}
+              <ul>
+                {{#each children}}
+                  <li>
+                    <a href="{{url}}">{{name}}</a>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </li>
+{{/each}}

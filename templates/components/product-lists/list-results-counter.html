@@ -1,0 +1,20 @@
+{{!--
+  Product List Results
+
+  @param pagination   Pagination object which contains start and end numbers.
+  @param listtype     Product list object which contains the items (and total available)
+--}}
+
+{{#if listtype.total_products}}
+  <span class="product-list-results">
+    {{#if pagination.start}}
+      {{lang 'common.displaying_X_results_of' start=pagination.start finish=pagination.end total=listtype.total_products}}
+    {{else}}
+      {{lang 'common.displaying_X_results' total=listtype.total_products}}
+    {{/if}}
+  </span>
+{{else}}{{! TODO: Remove this if data is consistent with products }}
+  <span class="product-list-results">
+    {{lang 'common.X_results' total=pagination.total}}
+  </span>
+{{/if}}

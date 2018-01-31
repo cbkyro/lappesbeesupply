@@ -1,0 +1,20 @@
+{{!--
+  Display Rating as Series of Stars
+
+  @param rating
+    The Rating value to display.
+--}}
+
+<span class="rating-stars" aria-hidden="true">
+  {{#for 1 5}}
+    {{#if ../rating '>=' $index}}
+      <svg class="star star-full">
+        <use xlink:href="#icon-star-full">
+      </svg>
+    {{else}}
+      <svg class="star star-empty">
+        <use xlink:href="#icon-star">
+      </svg>
+    {{/if}}
+  {{/for}}
+</span>

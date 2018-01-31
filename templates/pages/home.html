@@ -1,0 +1,79 @@
+---
+carousel: true
+products:
+  featured:
+    limit: {{theme_settings.number_of_featured_products}}
+  new:
+    limit: {{theme_settings.number_of_new_products}}
+  top_sellers:
+    limit: {{theme_settings.number_of_topseller_products}}
+blog:
+  recent_posts:
+    limit: {{theme_settings.number_of_latest_posts}}
+---
+
+{{#partial "page"}}
+
+  {{{snippet 'home_content'}}}
+
+  {{> components/carousel}}
+
+  <div class="homepage-collections">
+    {{#if products.featured}}
+      {{> components/product-lists/sidebar-list
+        title=(lang 'home.featured_products')
+        products=products.featured
+        quickshop=theme_settings.use_quickshop
+        image-ratio=theme_settings.image_ratio_grid
+      }}
+    {{/if}}
+
+    {{#if products.top_sellers}}
+      {{> components/product-lists/sidebar-list
+        title=(lang 'home.top_sellers_products')
+        products=products.top_sellers
+        quickshop=theme_settings.use_quickshop
+        image-ratio=theme_settings.image_ratio_grid
+      }}
+    {{/if}}
+
+    {{#if products.new}}
+      {{> components/product-lists/sidebar-list
+        title=(lang 'home.new_products')
+        products=products.new
+        quickshop=theme_settings.use_quickshop
+        image-ratio=theme_settings.image_ratio_grid
+      }}
+    {{/if}}
+  </div>
+
+  {{#if theme_settings.show_collections_cta}}
+    {{#each (limit categories 1)}}
+      {{#if image}}
+        <figure class="lazy-image collections-cta" data-src="{{getImage image 'jumbo'}}">
+          <img class="lazy-image collections-cta-image visually-hidden" data-src="{{getImage image 'jumbo'}}" alt="{{image.alt}}" />
+          <figcaption class="collections-cta-info">
+            <div class="inner">
+              <h2 class="collections-cta-title">{{{name}}}</h2>
+              <div class="collections-cta-text">
+                <p>{{{description}}}</p>
+              </div>
+              {{#if url}}
+                <a class="button" href="{{url}}">{{lang 'home.collections_cta' category=name}}</a>
+              {{/if}}
+            </div>
+          </figcaption>
+        </figure>
+      {{/if}}
+    {{/each}}
+  {{/if}}
+
+  {{#if settings.blog_enabled}}
+    {{> components/blog/latest-posts
+      image-ratio=theme_settings.image-ratio-blog
+    }}
+  {{/if}}
+
+{{/partial}}
+
+{{> layout/base}}

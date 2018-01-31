@@ -1,0 +1,110 @@
+{{!--
+  Share Links - Displayed on Blog Posts and Product Pages
+
+  @param url
+    The URL of the post that should be shared to social media.
+
+  @param title
+    The title / name to display when sharing
+
+  @param share_buttons
+    The data for the buttons to be shared from Bigcommerce
+
+  @param share_type (optional)
+    Added as a class name to the share-links-container
+
+  @param show_heading (optional)
+    Whether to show the heading text "Share this: "
+
+  @param image
+    The image to add to the pinterest post
+--}}
+
+{{#if share_buttons.buttons.length}}
+  <aside class="share-links-container type-{{share_type}}{{#any settings.add_this.buttons service='facebook_like'}} has-like{{/any}}">
+    {{#if show_heading}}
+      <div class="share-links-label">{{lang 'common.share'}}</div>
+    {{/if}}
+
+    <ul class="share-links">
+      {{#each share_buttons.buttons}}
+
+        {{#if service '===' 'facebook'}}
+          <li class="share-link">
+            <a target="_blank" href="//www.facebook.com/sharer.php?u={{../../url}}" class="share-facebook" data-share>
+              <span class="visually-hidden">Facebook</span>
+              {{> svg/social/facebook}}
+            </a>
+          </li>
+        {{/if}}
+
+        {{#if service '===' 'twitter'}}
+          <li class="share-link">
+            <a target="_blank" href="//twitter.com/share?url={{../../url}}" class="share-twitter" data-share>
+              <span class="visually-hidden">Twitter</span>
+              {{> svg/social/twitter}}
+            </a>
+          </li>
+        {{/if}}
+
+        {{#if service '===' 'pinterest'}}
+          <li class="share-link">
+            <a target="_blank" class="share-pinterest" href="//pinterest.com/pin/create/button/?url={{../../url}}&amp;media={{../../image}}&amp;description={{../../title}}" data-share>
+              <span class="visually-hidden">Pinterest</span>
+              {{> svg/social/pinterest}}
+            </a>
+          </li>
+        {{/if}}
+
+        {{#if service '===' 'linkedin'}}
+          <li class="share-link">
+            <a target="_blank" href="//www.linkedin.com/cws/share?url={{../../url}}" class="share-linkedin" data-share>
+              <span class="visually-hidden">LinkedIn</span>
+              {{> svg/social/linkedin}}
+            </a>
+          </li>
+        {{/if}}
+
+        {{#if service '===' 'google_plusone'}}
+          <li class="share-link">
+            <a target="_blank" href="//plus.google.com/share?url={{../../url}}" class="share-google" data-share>
+              <span class="visually-hidden">Google Plus</span>
+              {{> svg/social/googleplus}}
+            </a>
+          </li>
+        {{/if}}
+
+        {{#if service '===' 'email'}}
+          <li class="share-link">
+            <a href="mailto:?subject={{../../title}}&amp;body={{../../url}}" class="share-email">
+              <span class="visually-hidden">{{lang 'common.email'}}</span>
+              {{> svg/social/email}}
+            </a>
+          </li>
+        {{/if}}
+
+        {{#if service '===' 'print'}}
+          <li class="share-link">
+            <a class="share-print" data-share-print>
+              <span class="visually-hidden">{{lang 'common.print'}}</span>
+              {{> svg/social/print}}
+            </a>
+          </li>
+        {{/if}}
+
+      {{/each}}
+      {{#each share_buttons.buttons}}
+        {{#if service '===' 'facebook_like'}}
+          <li class="share-link facebook-like">
+            <div class="fb-like"
+              data-href="{{../../url}}"
+              data-layout="button_count"
+              data-action="like"
+              data-show-faces="false">
+            </div>
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </aside>
+{{/if}}

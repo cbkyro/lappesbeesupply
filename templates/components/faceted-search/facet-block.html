@@ -1,0 +1,26 @@
+{{!--
+  Displays a facet block in the sidebar of product-listing pages
+  and includes toggling facet controls open / closed
+--}}
+
+{{#if visible}}
+  <div class="sidebar-block facet-{{toLowerCase facet}} {{#unless items.length}}no-items{{/unless}}" data-facet-filter>
+
+    <h5 class="facet-block-title" data-facet-toggle>
+      {{title}}
+
+      {{#if start_collapsed}}
+        <span>&#43;</span>
+      {{else}}
+        <span>&ndash;</span>
+      {{/if}}
+    </h5>
+
+    {{{dynamicComponent 'components/faceted-search/facets'}}}
+
+    {{#if remove_url}}
+      <a class="facet-remove" href="{{remove_url}}" data-faceted-search-facet data-facet-remove>{{lang 'faceted_search.clear'}}</a>
+    {{/if}}
+
+  </div>
+{{/if}}

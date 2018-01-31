@@ -1,0 +1,24 @@
+<ul
+  class="facet-option {{#unless selected}}{{#if start_collapsed}}hidden{{/if}}{{/unless}}"
+  data-count="{{items_count}}"
+  data-facet-filter-wrapper>
+
+  {{#each items}}
+    <li class="facet-item" data-facet-item>
+      <a
+        href="{{url}}"
+        rel="nofollow"
+        data-faceted-search-facet>
+        {{title}}
+        {{#if ../show_product_counts}}<span data-facet-item-count>({{count}})</span>{{/if}}
+      </a>
+    </li>
+  {{/each}}
+</ul>
+
+{{#if show_more_toggle}}
+  <a class="facet-list-show-more" href="#" data-facet-more="{{facet}}">
+    <span class="toggle-link-text toggle-link-text-off">{{lang 'faceted_search.show_more'}}</span>
+    <span class="toggle-link-text toggle-link-text-on">{{lang 'faceted_search.show_less'}}</span>
+  </a>
+{{/if}}

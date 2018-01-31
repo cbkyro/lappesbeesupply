@@ -1,0 +1,20 @@
+{{!--
+  Displayed in the content header and links to parent pages.
+  Note: Each element is on same line with no extra white spacespace
+--}}
+{{!--
+  NOTE: No breadcrumbs featured in this design, but they can be added easily
+        by uncommenting this section.
+
+  {{#if this}}
+    <div class="breadcrumbs">
+      {{#each this}}
+        {{#unless @last}}
+          <a class="breadcrumb" href="{{url}}">{{{name}}}</a> /
+        {{else}}
+          <span class="breadcrumb active" href="{{url}}">{{{name}}}</span>
+        {{/unless}}
+      {{/each}}
+    </div>
+  {{/if}}
+--}}

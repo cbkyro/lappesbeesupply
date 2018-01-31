@@ -1,0 +1,92 @@
+{{!--
+  Product List -- Index
+
+  Wrapper around the product-list content that takes care of assigning the
+  values that the child templates will need. This is the template to call
+  via ajax when updating product list content.
+
+  # Summary of Component Tree:
+
+  Base Page: Category / Brand / Search
+    Product-List Index (switch / ajax content root)
+      Display (sidebar/paginate etc)
+        List or Grid
+          Product Items
+
+--}}
+
+{{#if category}}
+  {{{snippet 'categories'}}}
+
+  {{> components/product-lists/category-header category=category}}
+
+  {{> components/product-lists/list-utils
+    listtype=category
+    pagination=pagination.category
+  }}
+
+  {{> components/product-lists/display
+    listtype=category
+    pagination=pagination.category
+    quickshop=theme_settings.use_quickshop
+  }}
+{{/if}}
+
+{{#if brand}}
+  {{{snippet 'brand'}}}
+
+  {{> components/product-lists/category-header category=brand}}
+
+  {{> components/product-lists/list-utils
+    listtype=brand
+    pagination=pagination.brand
+  }}
+
+  {{> components/product-lists/display
+    listtype=brand
+    pagination=pagination.brand
+    quickshop=theme_settings.use_quickshop
+  }}
+{{/if}}
+
+{{#if product_results}}
+  {{{snippet 'search'}}}
+
+  <div class="search-tabs-nav">
+    <button class="search-tab-toggle active" data-search-tab-toggle="products">{{lang 'search.results.tab_products'}} {{pagination.product_results.total}}</button>
+    <button class="search-tab-toggle" data-search-tab-toggle="other">{{lang 'search.results.tab_other'}} {{pagination.content_results.total}}</button>
+  </div>
+
+  {{! Search Tabs to select between products / content results}}
+  <div class="search-tabs" data-search-tab="products">
+    {{> components/product-lists/list-utils
+      listtype=product_results
+      pagination=pagination.product_results
+    }}
+
+    {{> components/product-lists/display
+      listtype=product_results
+      pagination=pagination.product_results
+      quickshop=theme_settings.use_quickshop
+    }}
+
+    {{> components/search-brand-category-results}}
+  </div>
+
+  {{! Content Results}}
+  <div class="search-tabs hidden" data-search-tab="other">
+
+    {{! Minimal List Utils for Content Results}}
+    <div class="product-list-utils">
+      {{> components/product-lists/list-results-counter
+        listtype=content_results
+        pagination=pagination.content_results}}
+
+      {{> components/product-lists/sort sort=pagination.sort}}
+    </div>
+
+    {{> components/other-search-results}}
+
+  </div>
+
+{{/if}}

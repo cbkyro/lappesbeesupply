@@ -1,0 +1,26 @@
+{{!--
+  Minicart - Displayed in the page header showing a preview of products in cart
+  with links to checkout / view cart. Functionality to remove / change qty.
+
+  Wrapper template around the cart count and the mini-cart
+--}}
+
+{{! Cart Toggle - link to cart page on smallest screens. }}
+<a href="{{urls.cart}}" class="mini-cart-link" data-mini-cart-link>
+
+  {{! "Cart" text }}
+  {{> svg/cart}}
+
+  {{! Count }}
+  <span data-mini-cart-count>
+    {{> components/cart/mini-cart-count}}
+  </span>
+
+</a>
+
+{{! Main Mini-Cart }}
+{{#if minicart}}
+  <aside class="mini-cart-preview" data-mini-cart-content>
+    {{> components/cart/mini-cart-content}}
+  </aside>
+{{/if}}

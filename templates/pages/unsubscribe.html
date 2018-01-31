@@ -1,0 +1,15 @@
+{{#partial "page"}}
+
+    {{> components/content-header title=(lang 'common.newsletter.unsubscribed_heading')}}
+
+  <article class="contained contained-narrow">
+    <div class="user-content">
+
+      {{> core/alerts/alert-success (lang 'common.newsletter.unsubscribed_message')}}
+
+    </div>
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

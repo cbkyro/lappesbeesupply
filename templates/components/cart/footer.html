@@ -1,0 +1,16 @@
+{{!--
+  Cart/Totals - The footer on the cart page that displays totals
+--}}
+
+<div class="contained">
+
+  <div class="cart-totals-extras">
+    {{> components/cart/coupon-codes}}
+    {{#if settings.gift_certificates_enabled}}
+      {{> components/cart/gift-certificates}}
+    {{/if}}
+  </div>
+
+  {{> components/cart/totals}}
+
+</div>

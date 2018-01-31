@@ -1,0 +1,16 @@
+
+<li><a href="{{urls.home}}">{{{lang 'common.sitemap.home'}}}</a></li>
+{{#if blog.url.length ">" 1}}
+  <li><a href="{{blog.url}}">{{{blog.name}}}</a></li>
+{{/if}}
+<li><a href="{{urls.cart}}">{{{lang 'common.sitemap.cart'}}}</a></li>
+{{#unless customer.id}}
+  <li><a href="{{urls.auth.login}}">{{{lang 'common.sitemap.login'}}}</a></li>
+{{else}}
+  <li><a href="{{urls.account.index}}">{{{lang 'common.sitemap.account'}}}</a></li>
+  <li><a href="{{urls.auth.logout}}">{{{lang 'common.sitemap.logout'}}}</a></li>
+{{/unless}}
+{{#if settings.gift_certificates_enabled}}
+  <li><a href="{{urls.gift_certificate.purchase}}">{{{lang 'common.sitemap.giftcard_purchase'}}}</a></li>
+  <li><a href="{{urls.gift_certificate.balance}}">{{{lang 'common.sitemap.giftcard_balance'}}}</a></li>
+{{/if}}

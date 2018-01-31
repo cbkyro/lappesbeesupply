@@ -1,0 +1,27 @@
+---
+product:
+  reviews:
+    limit: 999
+  videos: true
+  related_products:
+    limit: 4
+---
+
+{{> components/common/return-link-placeholder }}
+
+{{#partial "page"}}
+
+  {{> components/product/details}}
+
+  {{> components/product/info-tabs }}
+
+  {{> components/product/reviews}}
+
+  {{> components/product-lists/sidebar-list
+    title=(lang 'product.related_products')
+    products=product.related_products
+    image-ratio=theme_settings.image_ratio_grid
+  }}
+
+{{/partial}}
+{{> layout/base}}

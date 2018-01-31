@@ -1,0 +1,64 @@
+{{!-- TODO: form elements need same class structure as rest of theme --}}
+<div class="shipping-calculator" data-shipping-calculator>
+  <a href="#" class="modal-close">{{> svg/modal-close}}</a>
+
+  <h2 class="section-title">{{lang 'cart.shipping_calculator.title'}}</h2>
+  <div data-shipping-errors>{{!-- Shipping Messages --}}</div>
+
+  {{!-- Select Destination Form --}}
+  <form class="form">
+    <div class="form-field form-field-select form-required">
+      <label class="form-label" for="shipping-country">
+        <span class="form-label-text">
+          {{lang 'cart.shipping_calculator.select_a_country'}}
+          <span class="required-text">{{lang 'common.required'}}</span>
+        </span>
+        <span class="form-field-control">
+          <span class="form-select-wrapper">
+            <select class="form-select" id="shipping-country" name="shipping-country" data-field-type="Country">
+              <option>{{lang 'cart.shipping_calculator.select_a_country'}}</option>
+              {{#each countries}}
+                <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
+                  {{name}}
+                </option>
+              {{/each}}
+            </select>
+          </span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-field form-field-select form-required">
+      <label class="form-label" for="shipping-state">
+        <span class="form-field-title">
+          {{lang 'cart.shipping_calculator.select_a_state'}}
+          <span class="required-text">{{lang 'common.required'}}</span>
+        </span>
+        <span class="form-field-control">
+          <span class="form-select-wrapper">
+            <select class="form-select form-input" id="shipping-state" name="shipping-state" data-field-type="State">
+              <option>{{lang 'cart.shipping_calculator.select_a_state'}}</option>
+              {{#each states}}
+                <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
+                  {{name}}
+                </option>
+              {{/each}}
+            </select>
+          </span>
+        </span>
+      </label>
+    </div>
+
+    {{> core/forms/common/text
+      label=(lang 'cart.shipping_calculator.zip_postal_code')
+      name="shipping-zip"
+      id="shipping-zip"
+    }}
+
+    <div class="form-actions">
+      <button class="button">{{lang 'cart.shipping_calculator.estimate_shipping'}}</button>
+    </div>
+  </form>
+
+  <div data-shipping-quotes class="shipping-quotes">{{!-- API Returned Quotes Display Here--}}</div>
+</div>

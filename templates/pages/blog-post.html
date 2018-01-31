@@ -1,0 +1,66 @@
+---
+blog:
+  recent_posts:
+    limit: 3
+---
+
+{{#partial 'page-header'}}
+  {{> components/common/return-link link=blog.url title=(lang 'blog.back_to' blog-name=blog.name)}}
+{{/partial}}
+
+{{#partial "page"}}
+
+  {{> components/content-header}}
+
+  <article class="contained contained-narrow">
+
+    <div class="page-main-content">
+      <h1 class="post-title">{{blog.post.title}}</h1>
+      <time class="timestamp">{{blog.post.date_published}}</time>
+
+      <!-- Post thumbnail -->
+      {{#if blog.post.thumbnail}}
+        <figure class="featured-image-container">
+          <img src="{{getImage blog.post.thumbnail 'large'}}" alt="{{blog.post.title}}">
+        </figure>
+      {{/if}}
+
+      <!-- Post content -->
+      <div class="blog-content user-content
+        {{#if theme_settings.journal_dropcap}}setting-journal-dropcap{{/if}}">
+        {{{blog.post.body}}}
+      </div>
+
+      <div class="post-meta">
+
+        {{#if blog.post.author}}
+          <div class="post-author">{{{lang 'blog.posted_by' author=blog.post.author}}}</div>
+        {{/if}}
+
+        {{#if blog.post.tags.length}}
+          <div class="post-tags">
+            <span class="post-tags-title">Categories:</span>
+            {{#each blog.post.tags}}
+              <a href="{{url}}" title="{{lang 'blog.tag_permalink' tag=name}}">{{name}}</a>{{#unless @last}},&nbsp;{{/unless}}
+            {{/each}}
+          </div>
+        {{/if}}
+
+      </div>
+
+      <!-- Social sharing -->
+      {{> components/common/share-links
+        url=blog.post.url
+        title=blog.post.title
+        share_type='blog-post'
+        share_buttons=settings.add_this
+        show_heading=true
+        image=(getImage blog.post.thumbnail 'share')
+      }}
+    </div>
+
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

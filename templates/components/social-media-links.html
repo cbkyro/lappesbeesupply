@@ -1,0 +1,95 @@
+<ul class="footer-social-media">
+  {{#each social_media}}
+
+    {{#if name "==" "Pinterest"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/pinterest}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "Facebook"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/facebook}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "Twitter"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/twitter}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "GooglePlus"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/googleplus}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "Instagram"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/instagram}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "YouTube"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/youtube}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "Tumblr"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/tumblr}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "StumbleUpon"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/stumbleupon}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "RSS"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/rss}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if name "==" "LinkedIn"}}
+      <li class="social-media-link">
+        <a href="{{url}}" title="{{name}}" target="_blank">
+          {{> svg/social/linkedin}}
+          <span class="social-media-name">{{name}}</span>
+        </a>
+      </li>
+    {{/if}}
+
+  {{/each}}
+</ul>

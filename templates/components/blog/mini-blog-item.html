@@ -1,0 +1,24 @@
+{{!--
+  Mini Blog Item - A single blog entry as displayed in latest-posts (homepage)
+--}}
+
+<article class="blog-item">
+
+  <figure class="blog-item-image">
+    {{> components/common/image
+      img=thumbnail
+      size='blog_large'
+      url=url
+      default=default-image
+      image-ratio=image-ratio
+    }}
+  </figure>
+
+  <div class="blog-item-content">
+    <h3 class="item-title"><a href="{{url}}">{{{title}}}</a></h3>
+    <div class="blog-item-meta">
+      <span class="blog-date">{{date_published}}</span>
+    </div>
+  </div>
+
+</article>

@@ -1,0 +1,30 @@
+---
+brands:
+  limit: {{theme_settings.brand_pagination}}
+---
+
+{{#partial "page"}}
+
+  {{> components/content-header title=(lang 'brand.label')}}
+
+  <section class="contained">
+    <div class="brands-index">
+      {{#if theme_settings.brands_list}}
+        <ul class="brands-list">
+          {{#each brands}}
+            <li><a class="brands-list-item" href="{{url}}">{{name}}</a></li>
+          {{/each}}
+        </ul>
+      {{else}}
+        {{#each brands}}
+          {{> components/brands/item}}
+        {{/each}}
+      {{/if}}
+    </div>
+
+    {{> components/common/pagination pagination.brands}}
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

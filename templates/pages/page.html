@@ -1,0 +1,16 @@
+{{#partial "page"}}
+
+  {{> components/content-header title=page.title}}
+
+  <article class="contained contained-narrow">
+    <div class="user-content">
+    {{#replace '%%Syndicate%%' page.content}}
+      {{> components/page/rss}}
+    {{else}}
+      {{{page.content}}}
+    {{/replace}}</div>
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

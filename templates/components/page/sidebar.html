@@ -1,0 +1,32 @@
+<div class="sidebar-nav">
+  <div class="sidebar-nav-wrapper{{#if theme_settings.sidebar_all_caps}} sidebar-allcaps{{/if}} {{#if theme_settings.top_align_nav}}align-top{{/if}}">
+
+  {{! Search Box }}
+  <aside class="drawer-item drawer-search">
+    {{{snippet 'forms_search'}}}
+    {{> components/search-box mini=true}}
+  </aside>
+
+  {{! Navigation and Logo }}
+  <div class="drawer-item drawer-nav">
+    {{> components/page/logo}}
+    {{> components/navigation}}
+  </div>
+
+  {{! Currency Selector }}
+  <aside class="drawer-item drawer-extras">
+    {{> components/currency-selector}}
+  </aside>
+
+  {{! Account Link }}
+  <nav class="drawer-item drawer-extras">
+    {{#unless customer.id}}
+      <a href="{{urls.auth.login}}">{{{lang 'common.sitemap.login'}}}</a>
+    {{else}}
+      <a href="{{urls.account.index}}">{{{lang 'common.sitemap.account'}}}</a>
+      <a href="{{urls.auth.logout}}">{{{lang 'common.sitemap.logout'}}}</a>
+    {{/unless}}
+  </nav>
+
+  </div>
+</div>

@@ -1,0 +1,42 @@
+{{#partial "page"}}
+
+
+  {{#if cart.items.length}}
+
+    {{! Cart title }}
+    {{> components/content-header title=(lang 'cart.title')}}
+
+    {{! Cart Content }}
+    <section class="cart-content contained" data-cart-content>
+
+      {{#each cart.status_messages}}
+        {{#if type '==' 0}}
+          {{> core/alerts/alert-error message=message}}
+        {{else if type '==' 1}}
+          {{> core/alerts/alert-success message=message}}
+        {{else}}
+          {{> core/alerts/alert-info message=message}}
+        {{/if}}
+      {{/each}}
+
+      {{> components/cart/content}}
+      {{{snippet 'cart'}}}
+    </section>
+
+    {{! Cart Footers }}
+    <section class="cart-totals" data-cart-footer>
+      {{> components/cart/footer}}
+    </section>
+
+  {{else}}
+
+    {{! Cart title & empty message }}
+    <div class="contained">
+      <h1 class="page-title">{{lang 'cart.title_empty'}}</h1>
+      <p>{{lang 'cart.empty_cart'}}</p>
+    </div>
+
+  {{/if}}
+
+{{/partial}}
+{{> layout/base}}

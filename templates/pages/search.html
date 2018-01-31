@@ -1,0 +1,38 @@
+---
+product_results:
+  limit: {{theme_settings.number_of_product_lists}}
+---
+
+{{#partial "page"}}
+
+  <div class="search-header">
+    <div class="contained">
+      <div class="search-box">
+        <h1 class="page-title">
+          {{#if forms.search.query}}
+            {{lang 'search.heading' count=result_count }} <strong>{{forms.search.query}}</strong>
+          {{else}}
+            {{{lang 'search.title'}}}
+          {{/if}}
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <section
+    class="product-list contained"
+    data-facet-content
+    {{#if product_results.show_compare}}
+      data-product-compare
+    {{/if}}
+  >
+    {{> components/product-lists/index }}
+  </section>
+
+  {{#if product_results.show_compare}}
+    {{> components/product-lists/compare-box }}
+  {{/if}}
+
+{{/partial}}
+
+{{> layout/base}}

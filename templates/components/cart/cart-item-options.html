@@ -1,0 +1,31 @@
+{{#if options}}
+  <div class="cart-item-options-info">
+
+    {{#each configurable_fields}}
+      <div class="cart-item-option-item">
+        <span class="cart-item-option-label">{{name}}:</span>
+        <span class="cart-item-option-value">
+          {{#if is_file}}
+            <a href="/viewfile.php?prodfield={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
+          {{else}}
+            {{{value}}}
+          {{/if}}
+        </span>
+      </div>
+    {{/each}}
+
+    {{#each options}}
+      <div class="cart-item-option-item">
+        <span class="cart-item-option-label">{{name}}:</span>
+        <span class="cart-item-option-value">
+          {{#if is_file}}
+            <a href="/viewfile.php?prodfield={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
+          {{else}}
+            {{{value}}}
+          {{/if}}
+        </span>
+      </div>
+    {{/each}}
+
+  </div>
+{{/if}}

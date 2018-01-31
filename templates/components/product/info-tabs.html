@@ -1,0 +1,48 @@
+{{!--
+  Product Information Tabs
+--}}
+
+<section class="product-tabs-wrapper">
+
+  <div class="product-tabs-navigation">
+
+    {{! Tab Navigation }}
+    <ul data-tabs>
+      <li class="tab-title"><a href="#features">{{lang 'product.description'}}</a></li>
+      {{#or
+        product.availability
+        product.condition
+        product.custom_fields
+        product.gift_wrapping_available
+        product.release_date
+        product.sku
+        product.gtin
+        product.mpn
+        product.detail_messages
+        product.warranty
+        product.custom_fields.length
+        product.bulk_discount_rates.length
+      }}
+        <li class="tab-title"><a href="#details" class="tab-title">{{lang 'bulk pricing'}}</strong></a></li>
+      {{/or}}
+      {{#if product.shipping}}
+        <li class="tab-title"><a href="#shipping" class="tab-title">{{lang 'product.shipping'}}</a></li>
+      {{/if}}
+    </ul>
+
+  </div>
+
+  <div class="product-tabs" >
+
+    {{! Features: Details / bulk pricing }}
+    {{> components/product/tab-features}}
+
+    {{! Details: Warranty and other stuff }}
+    {{> components/product/tab-details}}
+
+    {{! Shipping }}
+    {{> components/product/tab-shipping}}
+
+  </div>
+
+</section>

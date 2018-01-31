@@ -1,0 +1,35 @@
+{{!--
+  Product List Display - A wrapper around different types of product lists
+  Displays a list of products (category / brand / search)
+
+  @param listtype       The section this display applies to.
+  @param pagination     The pagination object related to this view.
+  @param quickshop      Whether to show the quickshop button.
+
+--}}
+
+{{! Product Items -- displayed as grid / list}}
+<div class="product-list-content">
+
+  {{!-- TODO: Add options to display list items instead of grid (or just remove this block)
+    {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+      {{> components/product-lists/grid
+        products=listtype.products
+        compare=listtype.show_compare
+      }}
+    {{else}}
+      {{> components/product-lists/list
+        products=listtype.products
+        compare=listtype.show_compare
+      }}
+    {{/if}}
+  --}}
+
+  {{> components/product-lists/grid
+    products=listtype.products
+    quickshop=quickshop
+    compare=listtype.show_compare
+  }}
+
+  {{> components/common/pagination pagination}}
+</div>

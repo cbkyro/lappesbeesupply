@@ -1,0 +1,62 @@
+
+
+<section class="product-info-wrapper"
+  data-product-container
+  data-product-details
+  data-product-title="{{product.title}}">
+    
+     <div class="product-information">
+    <div class="product-inner">
+      <div class="first-product-image" data-images-primary>
+        {{#each (limit product.images 1)}}
+          <a href="{{getImage this}}" target="_blank">
+            <img src="{{getImage this 'product'}}" alt="{{alt}}">
+          </a>
+        {{/each}}
+      </div>
+
+      {{{snippet 'product_details'}}}
+
+      {{#if product.brand.name}}
+        <a class="product-brand" href="{{product.brand.url}}">{{product.brand.name}}</a>
+      {{/if}}
+
+      <h1 class="product-title" data-product-title="{{product.title}}">{{product.title}}</h1>
+
+      {{> components/product/price price=product.price schema_org=true show_savings=true}}
+      {{#if product.call_for_price}}
+        <p class="product-call-for-price">{{product.call_for_price}}</p>
+      {{/if}}
+
+      {{!> components/product/info-tabs }}
+
+      <div data-product-message></div>
+
+      {{#if product.release_date}}
+        <div class="alert alert-info" role="alert">{{{product.release_date}}}</div>
+      {{/if}}
+
+      {{#unless product.out_of_stock_message}}
+        <link itemprop="availability" href="http://schema.org/InStock">
+      {{else}}
+        <link itemprop="availability" href="http://schema.org/OutOfStock">
+      {{/unless}}
+
+      {{> components/product/add-to-cart-form}}
+
+      {{!-- Social sharing --}}
+      {{> components/common/share-links
+        url=product.url
+        title=product.title
+        share_type='product-post'
+        share_buttons=settings.add_this
+        show_heading=true
+        image=(getImage product.main_image 'share')
+      }}
+    </div>
+  </div>
+
+  <div class="main-product-graphic">
+    {{> components/product/images size='product'}}
+  </div>
+</section>

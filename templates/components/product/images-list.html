@@ -1,0 +1,34 @@
+{{!--
+  Images List - Secondary images displayed as thumbnails
+  Used to control the primary image displayed.
+
+  @param size - the size of the images to load
+--}}
+
+{{inject 'imgClass' theme_settings.image-ratio-thumbnail}}
+
+<ul class="product-images-pagination" data-images-pagination>
+  {{#each product.images}}
+    <li>
+      <a
+        class="replaced-image {{../theme_settings.image-ratio-thumbnail}}"
+        href="{{getImage this 'product'}}"
+        style="background-image: url({{getImage this ../size}})">
+        <img class="visually-hidden" src="{{getImage this ../size}}" alt="{{alt}}">
+      </a>
+    </li>
+  {{/each}}
+  {{#each product.videos.list}}
+    <li class="product-images-pagination-video">
+      <a
+        class="replaced-image {{../theme_settings.image-ratio-thumbnail}}"
+        href="https://www.youtube.com/watch?v={{id}}"
+        target="_blank"
+        style="background-image: url(https://img.youtube.com/vi/{{id}}/0.jpg)">
+        <img class="visually-hidden"
+          src="https://img.youtube.com/vi/{{id}}/0.jpg"
+          alt="{{'core.account.products.videos.header'}}">
+      </a>
+    </li>
+  {{/each}}
+</ul>

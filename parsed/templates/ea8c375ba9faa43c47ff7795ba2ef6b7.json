@@ -1,0 +1,1 @@
+{"components/banner":"{{#if this}}\n  <div class=\"contained\">\n    <div class=\"banner banner-marketing\">\n      {{{limit this 1}}}\n    </div>\n  </div>\n{{/if}}\n"}

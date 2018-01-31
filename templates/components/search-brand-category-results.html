@@ -1,0 +1,26 @@
+{{!-- Additional Results: Brands and Categories matching search criteria  --}}
+
+{{#if category_results}}
+  <aside class="search-results-brands">
+    <h3 class="search-result-title">{{lang 'category.label'}} ({{category_results.length}})</h3>
+    <ul>
+      {{#each category_results}}
+        {{#each this}}
+          {{! REVIEW: If these results become consistent with brand results, remove extra wrapper each}}
+          <li><a href="{{url}}">{{name}}</a></li>
+        {{/each}}
+      {{/each}}
+    </ul>
+  </aside>
+{{/if}}
+
+{{#if brand_results}}
+  <aside class="search-results-brands">
+    <h3 class="search-result-title">">{{lang 'brand.label'}} ({{brand_results.length}})</h3>
+    <ul>
+      {{#each brand_results}}
+        <li><a href="{{url}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </aside>
+{{/if}}

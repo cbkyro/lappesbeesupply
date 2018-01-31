@@ -1,0 +1,54 @@
+{{!--
+  Homepage Carousel
+
+  Note: Theme setting defined that will display a minimal carousel (where the text
+  captions should be only about one word).
+--}}
+
+{{#if carousel.slides}}
+  <section
+    class="carousel"
+    id="carousel"
+    aria-live="polite"
+  >
+    <div class="carousel-slides" data-carousel-slides>
+      {{#each carousel.slides}}
+        <figure class="carousel-item-wrapper" data-carousel-item>
+          {{#unless button_text}}
+            {{#if url}}<a href="{{url}}">{{/if}}
+          {{/unless}}
+
+          <div class="carousel-item-image {{../theme_settings.carousel_aspect_ratio}}"
+            data-flickity-bg-lazyload="{{image}}"
+          >
+            <img src="{{image}}" alt="{{{alt_text}}}" />
+          </div>
+
+          {{#any text heading button_text}}
+            <figcaption class="carousel-item-info {{#if text}}{{#if url}}carousel-info-both{{/if}}{{/if}}">
+              {{#if text}}
+                <div class="carousel-item-text">
+                  <p>{{{text}}}</p>
+                </div>
+              {{/if}}
+              <h2 class="carousel-item-title">{{{heading}}}</h2>
+              {{#if url}}
+                {{#if button_text}}
+                  <a class="button carousel-cta" href="{{{url}}}">{{{button_text}}}</a>
+                {{/if}}
+              {{/if}}
+            </figcaption>
+          {{/any}}
+
+          {{#unless button_text}}
+            {{#if url}}</a>{{/if}}
+          {{/unless}}
+        </figure>
+      {{/each}}
+    </div>
+    <div class="carousel-navigation" data-carousel-nav>
+      <span class="carousel-navigation-item previous" data-carousel-pagination="prev"></span>
+      <span class="carousel-navigation-item next" data-carousel-pagination="next"></span>
+    </div>
+  </section>
+{{/if}}

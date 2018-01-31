@@ -1,0 +1,23 @@
+{{!--
+  Compare Box - Displays a link to compare page,
+  along with previews of the product images to be compared
+--}}
+
+<aside class="compare-items" data-compare-widget>
+  <div class="compare-items-header">
+    <p>{{lang 'common.compare.one_item'}}</p>
+    <a
+      href="{{urls.compare}}"
+      class="button compare-link"
+      data-compare-link="{{urls.compare}}"
+    >
+      {{> svg/arrow}}
+    </a>
+  </div>
+  <ul class="compare-items-content" data-compare-items></ul>
+  <div class="compare-items-actions">
+    <a href="#" class="clear-compare" data-compare-remove-all>
+      {{lang 'common.compare.clear_compare'}}
+    </a>
+  </div>
+</aside>

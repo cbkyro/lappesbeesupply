@@ -1,0 +1,28 @@
+{{!--
+  Product List Grid - Displays products in a grid like fashion.
+
+  @param products
+    The list of product items to loop over / display.
+--}}
+
+{{#if products.length}}
+
+  <ul class="product-grid">
+    {{#each products}}
+      <li class="product-grid-item">
+        {{> components/product/product-grid-item
+          image-ratio=../theme_settings.image_ratio_grid
+          default-image=../theme_settings.default_image
+          compare=../compare
+          quickshop=../quickshop
+        }}
+      </li>
+    {{/each}}
+  </ul>
+
+{{else}}
+  <div class="contained contained-narrow">
+    <p>{{lang 'search.results.no_results'}}</p>
+    {{> components/search-box}}
+  </div>
+{{/if}}

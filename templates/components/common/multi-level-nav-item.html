@@ -1,0 +1,13 @@
+<a href="{{url}}" {{#if children}}data-toggle-multi="{{id}}" data-multi-name="{{name}}"{{/if}}>{{name}}</a>
+{{#if children}}
+  <ul class="nav-multi-panel nav-multi-panel-child is-right" data-multi-menu="{{id}}">
+    <li class="nav-multi-item-all">
+      <a href="{{url}}">{{lang 'header.all'}} {{name}}</a>
+    </li>
+    {{#each children}}
+      <li class="nav-multi-item {{#if children}}has-children{{/if}}">
+        {{> components/common/multi-level-nav-item}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

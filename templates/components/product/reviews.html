@@ -1,0 +1,56 @@
+{{#if settings.show_product_reviews}}
+  <section class="product-info-reviews">
+    <div class="contained contained-narrow">
+      <header class="product-reviews-header">
+        <h2 class="reviews-title">{{lang 'product.reviews.heading'}}</h2>
+
+        <div class="product-details-rating"
+          itemprop="aggregateRating"
+          itemscope
+          itemtype="http://schema.org/AggregateRating">
+          {{#if settings.show_product_rating}}
+            <meta itemprop="ratingValue" content="{{product.rating}}">
+            <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+            {{#if product.rating '>' 0}}
+              {{lang 'product.reviews.total_rating' rating=product.rating numRatings=product.reviews.total}}
+            {{else}}
+              {{lang 'product.reviews.no_reviews'}}
+            {{/if}}
+          {{/if}}
+          {{{snippet 'product_rating'}}}
+        </div>
+
+        <a href="#modal-review-form" class="review-link button">{{lang 'product.reviews.leave_review'}}</a>
+        {{> components/reviews/review-modal}}
+      </header>
+
+      {{#each product.reviews.messages}}
+        {{#if error}}
+          {{> core/alerts/alert-error message=error}}
+        {{/if}}
+        {{#if success}}
+          {{> core/alerts/alert-success message=success}}
+        {{/if}}
+      {{/each}}
+
+      {{{snippet 'reviews'}}}
+      {{#if settings.show_product_reviews}}
+        {{#if product.reviews.total}}
+
+          {{#each product.reviews.list}}
+            {{#if @index "<" 9}}
+              {{> components/reviews/review-item}}
+            {{/if}}
+            {{#if @index ">=" 9}}
+              {{> components/reviews/review-item class="hidden"}}
+            {{/if}}
+          {{/each}}
+          {{#if product.reviews.total '>' 9}}
+            <button class="button button-more-reviews" data-more-reviews>{{ lang 'product.reviews.show_more_reviews' }}</button>
+          {{/if}}
+
+        {{/if}}
+      {{/if}}
+    </div>
+  </section>
+{{/if}}

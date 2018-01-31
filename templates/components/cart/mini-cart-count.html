@@ -1,0 +1,7 @@
+{{! Cart Count / Toggle - link to cart page on smallest screens. }}
+
+{{#if cart.quantity '>' 0}}
+  <span class="cart-count" data-cart-preview-count="{{cart.quantity}}">
+    <span class="cart-count-circle"></span>
+  </span>
+{{/if}}

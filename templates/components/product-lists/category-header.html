@@ -1,0 +1,21 @@
+{{!--
+  Category List Header
+
+  Special header displayed on top of category pages
+  Displays the category image if it's available.
+
+--}}
+
+<header class="category-header{{#if category.image.data}} category-header-bg{{/if}}"
+  {{#if category.image.data}}
+    style="background-image: url({{getImage category.image 'large'}});"
+  {{/if}}>
+  <div class="page-details {{#if category.description}}has-description{{/if}}">
+    <h1 class="page-title">{{category.name}}</h1>
+    {{#if category.description}}
+      <div class="page-description">
+        {{{category.description}}}
+      </div>
+    {{/if}}
+  </div>
+</header>

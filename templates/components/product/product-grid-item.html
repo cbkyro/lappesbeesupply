@@ -1,0 +1,67 @@
+{{!--
+  Product Grid Item - As displayed within a grid listing of products.
+
+  @param product object
+    The product object to display, handed over from the loop
+
+  @param compare bool
+    Whether to show "compare" checkboxes.
+
+  @param quickshop theme-setting
+    Theme setting to enable / disable quickshop
+
+  @param image-ratio theme-setting
+    The image ratio for this grid to display at.
+--}}
+
+<article
+  class="product-item{{#if compare}} product-item-compare{{/if}}{{#if quickshop}} product-item-quickshop{{/if}}">
+
+  {{#if out_of_stock_message}}
+    <span class="product-badge badge-sold-out">{{lang 'product.sold_out'}}</span>
+  {{else if price.saved}}
+    <span class="product-badge badge-sale">{{lang 'product.sale'}}</span>
+  {{/if}}
+
+  <div class="product-item-image">
+    {{> components/common/image
+      img=image
+      size="productlist"
+      ratio=image-ratio
+      default=default-image
+      image-ratio=image-ratio
+    }}
+
+    <div class="product-item-overlay">
+      {{#if compare}}
+        <label class="compare-checkbox-label" for="compare-{{id}}">
+          <input
+            class="compare-checkbox"
+            id="compare-{{id}}"
+            type="checkbox"
+            data-compare-checkbox
+            data-compare-id="{{id}}"
+            data-compare-title="{{name}}"
+            data-compare-url="{{url}}"
+            data-compare-price="{{price}}"
+            data-compare-thumbnail="{{getImage image 'thumb' (cdn default-image)}}">
+          <span class="compare-label-text">
+            {{lang 'core.product.compare'}}
+          </span>
+        </label>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="product-item-details">
+    <h3 class="item-title"><a href="{{url}}">{{{name}}}</a></h3>
+    {{> components/product/price price=price}}
+  </div>
+
+  {{#if quickshop}}
+    <a class="button-quickshop" href="{{url}}" data-quick-shop="{{id}}">
+      {{> svg/quickview}}{{lang 'common.quickview'}}
+    </a>
+  {{/if}}
+
+</article>

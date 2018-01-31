@@ -1,0 +1,33 @@
+{{!--
+  Product List - Sidebar
+  Displays a series of blocks with search facet options.
+
+  @param TODO: fill this in - needs to be passed the data from the page I think
+
+  @param listtype   The category object for list, search, brand, etc
+--}}
+
+<aside class="product-list-sidebar">
+
+  {{!> components/product-lists/product-count ... }}
+  {{! Not Possible Yet: "Showing 1 - 9 of 75" TODO when possible.}}
+
+  {{#if listtype.faceted_search_enabled}}
+    <div class="faceted-search-blocks" data-faceted-search>
+      {{#each listtype.facets}}
+        {{> components/faceted-search/facet-block}}
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="faceted-search-blocks">
+      {{> components/product-lists/subcategories listtype}}
+      {{#if theme_settings.show_shop_by_price}}
+        {{> components/product-lists/shop-by-price listtype.shop_by_price}}
+      {{/if}}
+      {{#if theme_settings.show_shop_by_brand}}
+        {{> components/product-lists/shop-by-brand shop_by_brand}}
+      {{/if}}
+    </div>
+  {{/if}}
+
+</aside>

@@ -1,0 +1,57 @@
+<footer class="main-footer contained">
+
+  <div class="contained footer-content">
+
+    {{! Footer Menu }}
+    <nav class="footer-sitemap footer-navigation footer-block">
+      <h3 class="footer-block-title">{{{lang 'common.sitemap.title'}}}</h3>
+      <div class="block-content">{{> components/footer-navigation}}</div>
+    </nav>
+
+    {{! Social Links }}
+    {{#if social_media.length}}
+      <nav class="footer-follow-links footer-block">
+        <h3 class="footer-block-title">{{lang 'common.follow_us'}}</h3>
+        <div class="block-content">
+          {{> components/social-media-links}}
+        </div>
+      </nav>
+    {{/if}}
+
+    {{! Newsletter Signup }}
+    {{#if settings.show_newsletter_box}}
+      <aside class="footer-mailinglist footer-block">
+        <h3 class="footer-block-title">{{{lang 'common.newsletter.heading'}}}</h3>
+        <div class="block-content">{{> components/common/newsletter-subscribe}}</div>
+      </aside>
+    {{/if}}
+
+  </div>
+
+  <aside class="footer-finale contained">
+    <div class="footer-messages">
+      {{! Address Information }}
+      {{#if settings.address}}
+        <p class="footer-address">{{{settings.address}}}</p>
+      {{/if}}
+
+      {{! Copyright Message }}
+      {{#if theme_settings.copyright_year}}
+        <p class="footer-copyright">
+          {{{lang 'common.copyright'}}}
+          <script>document.write(new Date().getFullYear())</script>
+          {{settings.store_name}}
+        </p>
+      {{/if}}
+
+      {{! Attribution Message }}
+      {{#if theme_settings.theme_credits}}
+        <p class="footer-message">{{{lang 'common.footer_message'}}}</p>
+      {{/if}}
+    </div>
+
+    {{! Payment Gateways }}
+    {{> components/footer-payment-gateways}}
+  </aside>
+
+</footer>

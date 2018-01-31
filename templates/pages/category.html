@@ -1,0 +1,28 @@
+---
+category:
+  shop_by_price: true
+  products:
+    limit: {{theme_settings.number_of_product_lists}}
+brands: true
+shop_by_brand:
+  limit: 10
+---
+{{#partial "page"}}
+
+  <section
+    class="product-list contained"
+    data-facet-content
+    {{#if category.show_compare}}
+      data-product-compare
+    {{/if}}
+  >
+    {{> components/product-lists/index}}
+  </section>
+
+  {{#if category.show_compare}}
+    {{> components/product-lists/compare-box }}
+  {{/if}}
+
+{{/partial}}
+
+{{> layout/base}}

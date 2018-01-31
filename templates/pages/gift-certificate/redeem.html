@@ -1,0 +1,16 @@
+{{#partial "page"}}
+
+  {{> components/content-header}}
+
+  <section class="page-with-sidebar page-giftcard contained contained-narrow">
+    {{> components/giftcards/navigation gift_page='redeem'}}
+
+    <div class="page-main-content">
+      <h1 class="post-title">{{lang 'gift_certificate.redeem.heading'}}</h1>
+      {{> core/gift-certificate/redeem}}
+    </div>
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

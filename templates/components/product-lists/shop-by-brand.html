@@ -1,0 +1,22 @@
+{{!--
+  Shop by Brand Sidebar block
+  Shows a list of brands to select from
+
+  @param this   shop_by_brand
+    The "shop_by_price" object from categories / search / etc
+--}}
+
+{{#if this.length}}
+  <nav class="sidebar-block">
+    <h2 class="sidebar-title">{{lang 'unfaceted_search.shop_by_brand'}}</h2>
+    <ul class="shop-by-brand-list">
+      {{#each this}}
+        <li class="shop-by-brand-item">
+          <a class="shop-by-brand-action {{#if selected}}active{{/if}}" href="{{url}}"
+            title="{{name}}">{{name}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+{{/if}}

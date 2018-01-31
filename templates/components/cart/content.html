@@ -1,0 +1,13 @@
+{{!--
+  Cart/Content - Shows the individual line items that are part of the cart.
+--}}
+
+<div class="cart-items-wrapper {{#if cart.items.length '>=' 4}} cart-lots-of-items{{/if}}">
+  {{#each cart.items}}
+    {{> components/cart/cart-item
+      price=price
+      image-ratio=../theme_settings.image_ratio_grid
+      default-image=../theme_settings.default_image
+    }}
+  {{/each}}
+</div>

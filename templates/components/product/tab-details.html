@@ -1,0 +1,204 @@
+{{!--
+  Product Tab: Details
+  Extra information, warranty, secondary product information.
+--}}
+{{#or
+  product.availability
+  product.condition
+  product.custom_fields
+  product.gift_wrapping_available
+  product.release_date
+  product.sku
+  product.gtin
+  product.mpn
+  product.detail_messages
+  product.warranty
+  product.custom_fields.length
+  product.bulk_discount_rates.length
+}}
+  <section class="product-info-details tab-content-panel" id="details">
+    <div class="tab-content">
+
+        {{#if theme_settings.show_stock_levels}}
+          <div class="product-detail-item product-detail-stocklevel">
+            <span
+              class="product-details-title{{#unless product.stock_level}} hidden{{/unless}}"
+              data-product-stock
+            >
+              {{lang 'product.details.current_stock'}}:
+            </span>
+            <span
+              class="product-details-info{{#unless product.stock_level}} hidden{{/unless}}"
+              data-product-stock data-product-stock-level
+            >
+              {{product.stock_level}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.availability}}
+          <div class="product-detail-item product-detail-availability">
+            <span class="product-details-title">
+              {{lang 'product.details.availability'}}:
+            </span>
+            <span class="product-details-info">
+              {{product.availability}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.condition}}
+          <div class="product-detail-item product-detail-condition">
+            <span class="product-details-title">
+              {{lang 'product.details.condition'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.condition}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.custom_fields.name}}
+          <div class="product-detail-item product-detail-customfield">
+            <span class="product-details-title">
+              {{lang 'product.details.thing'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.custom_fields.name}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.custom_fields.value}}
+          <div class="product-detail-item product-detail-customfield-value">
+            <span class="product-details-title">
+              {{lang 'product.thing'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.custom_fields.value}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.gift_wrapping_available}}
+          <div class="product-detail-item product-detail-giftwrap">
+            <span class="product-details-title">
+              {{lang 'product.details.gift_wrap'}}:
+            </span>
+            <span class="product-details-info">
+              {{lang 'product.details.gift_wrap_avail'}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.release_date}}
+          <div class="product-detail-item product-detail-releasedate">
+            <span class="product-details-title">
+              {{lang 'product.details.release_date'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.release_date}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.sku}}
+          <div class="product-detail-item product-detail-sku">
+            <span class="product-details-title">
+              {{lang 'product.details.sku'}}:
+            </span>
+            <span class="product-details-info" itemprop="sku" data-product-sku>
+              {{{product.sku}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.gtin}}
+          <div class="product-detail-item product-detail-gtin">
+            <span class="product-details-title">
+              {{lang 'product.details.gtin'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.gtin}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.mpn}}
+          <div class="product-detail-item product-detail-mpn">
+            <span class="product-details-title">
+              {{lang 'product.details.mpn'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.mpn}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.detail_messages}}
+          <div class="product-detail-item product-detail-messages">
+            <span class="product-details-title">
+              {{lang 'product.details.'}}:
+            </span>
+            <span class="product-details-info">
+              {{{product.detail_messages}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.warranty}}
+          <div class="product-detail-item product-detail-warranty">
+            <span class="product-details-title">
+              {{lang 'product.details.warranty'}}:
+            </span>
+            <span class="product-details-info">
+              {{{nl2br product.warranty}}}
+            </span>
+          </div>
+        {{/if}}
+
+        {{#if product.custom_fields.length}}
+          {{#each product.custom_fields}}
+            <div class="product-detail-item product-detail-customfields">
+              <span class="product-details-title">
+                {{name}}:
+              </span>
+              <span class="product-details-info">
+                {{value}}
+              </span>
+            </div>
+          {{/each}}
+        {{/if}}
+
+      {{#if product.bulk_discount_rates.length}}
+          <div class="product-detail-item product-detail-discount">
+            <span class="product-details-title product-details-bulk-discount">
+              {{lang 'Bulk Pricing'}}
+              <p>&nbsp;</p>
+            </span>
+                        {{#each product.bulk_discount_rates}}
+              <span class="product-details-info">
+                {{lang 'product.bulk_pricing.range' min=min max=max}}
+                {{#if type "===" "percent"}}
+                  {{lang 'product.bulk_pricing.percent' discount=discount.formatted}}
+                {{/if}}
+                {{#if type "===" "fixed"}}
+                  {{lang 'product.bulk_pricing.fixed' discount=discount.formatted}}
+                {{/if}}
+                {{#if type "===" "price"}}
+                  {{lang 'product.bulk_pricing.price' discount=discount.formatted}}
+                {{/if}}
+                
+              </span>
+            {{/each}}
+          </div>
+        {{/if}}
+
+    </div>
+  </section>
+{{/or}}
+    </div>
+
+    </div>
+  </section>
+

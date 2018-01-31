@@ -1,0 +1,28 @@
+{{!--
+  Product Sidebar List
+  Display new, featured, related products (etc) as a mini-grid.
+  Used in several places throughout the site.
+
+  @param title
+    The title to display for this section
+
+  @param products
+    The product array to display
+--}}
+
+{{#if products}}
+  <section class="products-featured products-sidebar contained">
+
+    <h2 class="section-title">{{title}}</h2>
+
+    <div class="products-sidebar-grid">
+      {{#each products}}
+        {{> components/product/product-grid-item
+          quickshop=../quickshop
+          default-image=../theme_settings.default_image
+          image-ratio=../image-ratio}}
+      {{/each}}
+    </div>
+
+  </section>
+{{/if}}

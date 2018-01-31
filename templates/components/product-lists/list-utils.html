@@ -1,0 +1,35 @@
+{{!--
+  Product List Utilities - toolbar to refine product lists
+
+  @param listtype       The section this display applies to.
+  @param pagination     The pagination object for this section (for sort / results)
+--}}
+{{#if listtype.products}}
+  <div class="product-list-utils">
+
+    <button class="filter-panel-toggle">
+      {{> svg/filter}}
+      {{> svg/ex}}
+      {{lang 'faceted_search.refine'}}
+    </button>
+
+    <div class="product-list-refine">
+      {{#each listtype.facets}}
+        {{#if selected}}
+          <a class="active-filter" href="{{remove_url}}" data-faceted-search-facet data-facet-remove>
+            {{title}} {{> svg/ex}}
+          </a>
+        {{/if}}
+      {{/each}}
+    </div>
+
+    {{> components/product-lists/list-results-counter
+      listtype=listtype
+      pagination=pagination}}
+
+    {{> components/product-lists/sort sort=pagination.sort}}
+
+    {{! Sidebar first (top of mobile) }}
+    {{> components/product-lists/sidebar listtype=listtype}}
+  </div>
+{{/if}}

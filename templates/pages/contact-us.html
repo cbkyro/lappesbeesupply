@@ -1,0 +1,22 @@
+{{#partial "page"}}
+
+{{> components/content-header title=page.title}}
+
+<article class="contained contained-narrow">
+  <div class="page-content">
+    <div class="page-message-area">
+      {{#if forms.contact.success}}
+        {{> core/alerts/alert-success (lang 'contact.successful' shopPath=urls.home)}}
+      {{else}}
+        <p>{{{page.content}}}</p>
+      {{/if}}
+    </div>
+    {{#unless forms.contact.success}}
+      {{> core/forms/form-contact-us}}
+    {{/unless}}
+  </div>
+</article>
+
+{{/partial}}
+
+{{> layout/base}}
