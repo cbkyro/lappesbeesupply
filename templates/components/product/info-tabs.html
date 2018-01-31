@@ -8,23 +8,27 @@
 
     {{! Tab Navigation }}
     <ul data-tabs>
-      <li class="tab-title"><a href="#features">{{lang 'product.description'}}</a></li>
-      {{#or
-        product.availability
-        product.condition
-        product.custom_fields
-        product.gift_wrapping_available
-        product.release_date
-        product.sku
-        product.gtin
-        product.mpn
-        product.detail_messages
-        product.warranty
-        product.custom_fields.length
-        product.bulk_discount_rates.length
-      }}
-        <li class="tab-title"><a href="#details" class="tab-title">{{lang 'bulk pricing'}}</strong></a></li>
-      {{/or}}
+      <li class="tab-title">
+        <a href="#features">{{lang 'product.description'}}</a>
+      </li>
+      {{#unless theme_settings.hide_details}}
+        {{#or
+          product.availability
+          product.condition
+          product.custom_fields
+          product.gift_wrapping_available
+          product.release_date
+          product.sku
+          product.gtin
+          product.mpn
+          product.detail_messages
+          product.warranty
+          product.custom_fields.length
+          product.bulk_discount_rates.length
+        }}
+          <li class="tab-title"><a href="#details" class="tab-title">{{lang 'product.details.title'}}</a></li>
+        {{/or}}
+      {{/unless}}
       {{#if product.shipping}}
         <li class="tab-title"><a href="#shipping" class="tab-title">{{lang 'product.shipping'}}</a></li>
       {{/if}}
@@ -34,11 +38,13 @@
 
   <div class="product-tabs" >
 
-    {{! Features: Details / bulk pricing }}
+    {{! Features: Details / description }}
     {{> components/product/tab-features}}
 
     {{! Details: Warranty and other stuff }}
-    {{> components/product/tab-details}}
+    {{#unless theme_settings.hide_details}}
+      {{> components/product/tab-details}}
+    {{/unless}}
 
     {{! Shipping }}
     {{> components/product/tab-shipping}}

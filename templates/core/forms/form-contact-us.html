@@ -1,7 +1,8 @@
+{{#if forms.contact.error}}
+  {{> core/alerts/alert-error message=forms.contact.error dismissable=true}}
+{{/if}}
+
 <form class="form" id="form-contact-us" action="{{urls.contact_us_submit}}" method="post" data-validated-form>
-  {{#if forms.contact.error}}
-    {{> core/alerts/alert-error message=forms.contact.error dismissable=true}}
-  {{/if}}
   <input type="hidden" name="page_id" id="page_id" value="{{forms.contact.page_id}}">
 
   {{#if forms.contact.name}}

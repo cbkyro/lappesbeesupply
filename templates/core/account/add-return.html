@@ -18,7 +18,7 @@
           <tr>
             <td>{{name}}</td>
             <td>{{price.formatted}}</td>
-            <td>{{> core/forms/common/select select_type='range' from=0 to=quantity name=(concat 'return_qty[' (concat id ']'))}}</td>
+            <td>{{> core/forms/common/number limitfrom=0 limitto=quantity name=(concat 'return_qty[' (concat id ']'))}}</td>
           </tr>
         {{/each}}
       </table>

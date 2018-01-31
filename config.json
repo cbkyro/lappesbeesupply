@@ -1,6 +1,6 @@
 {
-  "name": "Exhibit - Modified product page",
-  "version": "1.11.1",
+  "name": "Exhibit",
+  "version": "1.12.3",
   "meta": {
     "price": 17000,
     "documentation_url": "http://support.pixelunion.net/category/195-exhibit",
@@ -17,6 +17,7 @@
       "product_comparison_table",
       "complex_search_filtering",
       "customizable_product_selector",
+      "customized_checkout",
       "cart_suggested_products",
       "free_customer_support",
       "free_theme_upgrades",
@@ -26,7 +27,8 @@
       "product_showcase",
       "persistent_cart",
       "one_page_check_out",
-      "product_videos"
+      "product_videos",
+      "pixel_pop"
     ]
   },
   "css_compiler": "scss",
@@ -87,6 +89,10 @@
         "width": 100,
         "height": 100
       },
+      "core-blog-thumbnail": {
+        "width": 800,
+        "height": 800
+      },
       "share": {
         "width": 640,
         "height": 480
@@ -104,6 +110,8 @@
     "sidebar_all_caps": true,
     "navbar_all_caps": true,
     "show_stock_levels": true,
+    "hide_details": false,
+    "product_form_above": false,
     "bold_carousel_buttons": false,
     "show_collections_cta": true,
     "show_shop_by_price": true,
@@ -203,6 +211,28 @@
         ],
         "industries": [
           "fashion_jewelry"
+        ],
+        "features": [
+          "fully_responsive",
+          "multi_tiered_sidebar_menu",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "product_comparison_table",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "customized_checkout",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "pixel_pop"
         ]
       },
       "settings": {
@@ -236,149 +266,41 @@
         ],
         "industries": [
           "food_beverage"
+        ],
+        "features": [
+          "fully_responsive",
+          "multi_tiered_sidebar_menu",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "product_comparison_table",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "customized_checkout",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "pixel_pop"
         ]
       },
       "settings": {
-        "_images": {
-          "logo": {
-            "width": 500,
-            "height": 200
-          },
-          "jumbo": {
-            "width": 2048,
-            "height": 2048
-          },
-          "large": {
-            "width": 1280,
-            "height": 1280
-          },
-          "productlist": {
-            "width": 600,
-            "height": 600
-          },
-          "small": {
-            "width": 300,
-            "height": 300
-          },
-          "medium": {
-            "width": 200,
-            "height": 200
-          },
-          "thumb": {
-            "width": 100,
-            "height": 100
-          },
-          "blog_large": {
-            "width": 687,
-            "height": 485
-          },
-          "account-product-thumbnail": {
-            "width": 600,
-            "height": 600
-          },
-          "account-logo": {
-            "width": 250,
-            "height": 100
-          },
-          "core-product-picklist": {
-            "width": 100,
-            "height": 100
-          },
-          "share": {
-            "width": 640,
-            "height": 480
-          }
-        },
-        "menu_sidebar": "categories",
-        "menu_footer": "sitelinks",
-        "top_align_nav": false,
-        "show_sitemap": true,
-        "filled_sale_dot": true,
-        "journal_dropcap": true,
-        "use_quickshop": true,
-        "theme_credits": false,
-        "copyright_year": true,
+        "primary-font": "Google_Merriweather_400,700",
+        "secondary-font": "Google_Merriweather_400,700",
         "sidebar_all_caps": false,
-        "navbar_all_caps": true,
-        "show_stock_levels": true,
+        "navbar_all_caps": false,
         "bold_carousel_buttons": true,
-        "show_collections_cta": true,
-        "show_shop_by_price": false,
-        "show_shop_by_brand": false,
-        "payment_visa": true,
-        "payment_mastercard": true,
-        "payment_american_express": true,
-        "payment_discover": true,
-        "payment_paypal": true,
-        "payment_apple_pay": false,
-        "brands_list": false,
-        "color_primary": "#fabd09",
-        "color_secondary": "#080808",
-        "color_headings": "#000000",
-        "color_sidebar": "#020202",
-        "color_page_background": "#ffffff",
-        "color_footer_background": "#fcf1dd",
-        "color_footer_text": "#000000",
-        "color_carousel_text": "#fdaf0c",
-        "color_carousel_screen": "#000000",
-        "opacity_carousel_screen": 0.1,
-        "style_apple_pay_button": "white-border",
-        "primary-font": "Google_Lato_300,400,700",
-        "secondary-font": "Google_PT+Sans_400,700",
-        "font_h1-h3": 1,
-        "font_h4-h6": 1,
-        "carousel_aspect_ratio": "ratio-any",
-        "image_ratio_grid": "ratio-any",
-        "image_crop_grid": "contain",
-        "image_ratio_thumbnail": "ratio-any",
-        "image_ratio_blog": "ratio-16-9",
-        "number_of_product_lists": 999,
-        "number_of_topseller_products": 16,
-        "number_of_featured_products": 16,
-        "number_of_new_products": 0,
-        "number_of_blog_posts": 6,
-        "brand_pagination": 999,
-        "number_of_latest_posts": 4,
-        "default_image_gift_certificate": "/assets/img/giftcertificate-image.svg",
-        "default_image": "/assets/img/no-image.svg",
-        "optimizedCheckout-header-backgroundColor": "#0b0b0b",
-        "optimizedCheckout-show-backgroundImage": false,
-        "optimizedCheckout-backgroundImage": "",
-        "optimizedCheckout-backgroundImage-size": "1000x400",
-        "optimizedCheckout-show-logo": "none",
-        "optimizedCheckout-logo": "",
-        "optimizedCheckout-logo-size": "250x100",
-        "optimizedCheckout-logo-position": "center",
-        "optimizedCheckout-headingPrimary-color": "#2d2d2d",
-        "optimizedCheckout-headingPrimary-font": "Google_Karla_400",
-        "optimizedCheckout-headingSecondary-color": "#2d2d2d",
-        "optimizedCheckout-headingSecondary-font": "Google_Montserrat_400",
-        "optimizedCheckout-body-backgroundColor": "#ffffff",
-        "optimizedCheckout-contentPrimary-color": "#4f4f4f",
-        "optimizedCheckout-contentPrimary-font": "Google_Karla_400",
-        "optimizedCheckout-contentSecondary-color": "#989898",
-        "optimizedCheckout-contentSecondary-font": "Google_Karla_400",
-        "optimizedCheckout-buttonPrimary-font": "Google_Karla_400",
-        "optimizedCheckout-buttonPrimary-color": "#ffffff",
-        "optimizedCheckout-buttonPrimary-colorHover": "#ffffff",
-        "optimizedCheckout-buttonPrimary-backgroundColor": "#454545",
-        "optimizedCheckout-buttonPrimary-backgroundColorHover": "#666666",
-        "optimizedCheckout-buttonPrimary-borderColor": "#454545",
-        "optimizedCheckout-buttonPrimary-borderColorHover": "#666666",
-        "optimizedCheckout-buttonSecondary-font": "Google_Karla_400",
-        "optimizedCheckout-buttonSecondary-color": "#4f4f4f",
-        "optimizedCheckout-buttonSecondary-backgroundColor": "#ffffff",
-        "optimizedCheckout-buttonSecondary-borderColor": "#dfdfdf",
-        "optimizedCheckout-link-color": "#fcde18",
-        "optimizedCheckout-link-font": "Google_Karla_400",
-        "optimizedCheckout-discountBanner-backgroundColor": "#0c0c0c",
-        "optimizedCheckout-discountBanner-textColor": "#ffffff",
-        "optimizedCheckout-discountBanner-iconColor": "#f6d95c",
-        "optimizedCheckout-orderSummary-backgroundColor": "#ffffff",
-        "optimizedCheckout-step-backgroundColor": "#4f4f4f",
-        "optimizedCheckout-step-textColor": "#fdbf09",
-        "optimizedCheckout-formField-backgroundColor": "white",
-        "optimizedCheckout-formField-borderColor": "#989898"
+        "color_sidebar": "#2d2c2c",
+        "color_footer_background": "#eaeaea",
+        "color_footer_text": "#1c1b1b",
+        "font_h1-h3": "1",
+        "font_h4-h6": "1"
       }
     },
     {
@@ -399,6 +321,28 @@
         ],
         "industries": [
           "health_beauty"
+        ],
+        "features": [
+          "fully_responsive",
+          "multi_tiered_sidebar_menu",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "product_comparison_table",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "customized_checkout",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "pixel_pop"
         ]
       },
       "settings": {
@@ -434,6 +378,28 @@
         ],
         "industries": [
           "home_garden"
+        ],
+        "features": [
+          "fully_responsive",
+          "multi_tiered_sidebar_menu",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "product_comparison_table",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "customized_checkout",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "pixel_pop"
         ]
       },
       "settings": {

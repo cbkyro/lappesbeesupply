@@ -3,33 +3,113 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.12.3] - unreleased
+#### Added
+- Don't want to share what's in the products details tab with your shoppers? Now
+  you don't have to, go into theme settings, and toggle on 'Hide details tab on
+  the product page'
+
+## [1.12.2] - 2018-01-18
+#### Added
+- Optimized for Pixelpop added to theme features for use in theme marketplace
+- Now you can choose if your product form is shown before the description by
+  using a theme setting called 'Show product form above product description', I
+  know, that's not super original, but it get's the point across
+
+#### Fixed
+- Options that are set to hide are in fact hidden in Safari now, not just greyed
+  out
+
+#### Changed
+- Use JASON-LD for site schema rather then inline schema for better implementation
+
+## [1.12.1] - 2017-12-07
+#### Fixed
+- Showing your latest and greatest products is a good thing to do, and now you
+  can once again. We don't know why the theme setting for new products was
+  removed, but we put it back for your convenience
+
+## [1.12.0] - 2017-11-30
+#### Added
+- Better late then never! Exhibit now supports Optimized one-page checkout
+
+#### Fixed
+- Your Account address fields wont make you blush with a broken layout any more
+
+#### Changed
+- Checkboxes now look the same across the product page no mater where they come
+  from
+- Contact form errors wont mess up your pages any more, we've seen to that
+- Custom fields now respect html, you can add as many links as you'd like now
+  (fixes THEME-1444)
+
+## [1.11.5] - 2017-11-22
+#### Changed
+- Hash added to package for Validetta so it doesn't go all rouge on your checkboxes
+
+## [1.11.4] - 2017-11-16
+
+#### Changed
+- We update stencil utils so you don't wake up one morning and have a broken theme
+  on your hands, you are welcome
+
+#### Fixed
+- States are not required for countries without states in account forms any more.
+  That just makes sense, doesn't it?
+
+## [1.11.3] - 2017-10-26
+
+#### Added
+- Support for forgotten password requests for those users who aren't quite sure
+  they have the right email address
+- We made non-required option selection easier with None support is all multiple
+  choice product options
+
+#### Changed
+- Use a third party gift certificate solution? Now those codes will be accepted
+  on your themes frontend
+
+## [1.11.2] - 2017-10-05
+
+#### Fixed
+- IE won't force compatibility mode on you any more, most of the time
+
 ## [1.11.1] - 2017-09-13
 
 #### Added
-- Now you see them, those images you keep putting in your footer. Be glad LEGO's can't go in there, ouch! (fixes THEME-1410)
+- Now you see them, those images you keep putting in your footer. Be glad LEGO's
+  can't go in there, ouch! (fixes THEME-1410)
 
 #### Changed
-- Only one banner served up at a time now, it allows you to savor it slowly and really hear it's message
+- Only one banner served up at a time now, it allows you to savor it slowly and
+  really hear it's message
 
 ## [1.11.0] - 2017-08-24
 
 #### Added
-- Users now have an option for different aspect ratios in their carousel including a setting that will allow their images to maintain their original aspect ratio
+- Users now have an option for different aspect ratios in their carousel
+  including a setting that will allow their images to maintain their original
+  aspect ratio
 
 #### Fixed
 - Product sold out button re-added to product form
-- Breadcrumb return to link now recognizes page titles so if a product is visited from a content page the breadcrumb points back to the page the user came from instead of the last visited catalog page
+- Breadcrumb return to link now recognizes page titles so if a product is visited
+  from a content page the breadcrumb points back to the page the user came from
+  instead of the last visited catalog page
 
 ##[1.10.12] - 2017-08-03
 
 #### Fixed
-- Product Utils now handles product weight correctly so it doesn't error when no weight is present
-- Changed search input color to text color so it is visible on all presets (fixes THEME-1393)
+- Product Utils now handles product weight correctly so it doesn't error when no
+  weight is present
+- Changed search input color to text color so it is visible on all presets
+  (fixes THEME-1393)
 
 ##[1.10.11] - 2017-07-27
 
 #### Fixed
-- Latest blog layout corrected for proper display at all display values (fixes THEME-1386)
+- Latest blog layout corrected for proper display at all display values
+  (fixes THEME-1386)
 
 ##[1.10.10] - 2017-07-20
 
@@ -37,20 +117,25 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - All shipping carrier methods now display on cart page (fixes THEME-1368)
 
 #### Added
-- Added theme setting to allow users to chose weather product images cover the space on the product grid, or are contained by it
+- Added theme setting to allow users to chose weather product images cover the
+  space on the product grid, or are contained by it
 
 ##[1.10.9] - 2017-07-06
 
 #### Fixed
 - Removed extraneous image title tags causing SEO warnings (fixes THEME-1345)
-- Corrected image logic for cart page to not include lazy load to avoid breaking when cart qty changed
+- Corrected image logic for cart page to not include lazy load to avoid breaking
+  when cart qty changed
 
 ##[1.10.8] - 2017-06-29
 
 #### Fixed
-- Compare page now displays products, the refactored to use bc-compare module (fixes THEME-1312)
-- Date field year in product date range now shows if date range is within one year (fixes THEME-1331)
-- Add logic to keep blog navigation item open when a blog post is being viewed (fixes THEME-1314)
+- Compare page now displays products, the refactored to use bc-compare module
+  (fixes THEME-1312)
+- Date field year in product date range now shows if date range is within one
+  year (fixes THEME-1331)
+- Add logic to keep blog navigation item open when a blog post is being viewed
+  (fixes THEME-1314)
 - No image image when ratio set to any now displays
 
 #### Changed
@@ -62,7 +147,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Fixed
 - Compare page now displays products, refactored to use bc-compare module (fixes THEME-1312)
-- Fixed an issue where product images weren't loading after clicking through to the next page when faceted search is enabled
+- Fixed an issue where product images weren't loading after clicking through to
+  the next page when faceted search is enabled
 
 ##[1.10.6] - 2017-05-24
 
@@ -75,7 +161,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Review form to use reCaptcha V2
 
 #### Fixed
-- Removed js that was causing product page to scroll to the top when an option without an image is selected (fixes THEME-1259)
+- Removed js that was causing product page to scroll to the top when an option
+  without an image is selected (fixes THEME-1259)
 
 #### Added
 - Lazyload grid images, home carousel and home category CTA image
@@ -90,29 +177,35 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Fixed
 - None is not an option on required pick lists any more (fixes THEME-1279)
-- None is not the default option when set in CP for non-required pick lists (fixes THEME-1267)
+- None is not the default option when set in CP for non-required pick lists
+  (fixes THEME-1267)
 - Corrected reference to image alt product list items (fixes THEME-1274)
 - Adjusted styles on product picklist to display more nicely
-- Fixed pinterest button so it actually shares information now (fixes THEME-1291)
+- Fixed Pinterest button so it actually shares information now (fixes THEME-1291)
 
 #### Changed
 - Captcha to V2
 - Update @bigcommerce/stencil-utils to allow for platforms new tracking features
-- Changed header tags so there is only 1 h1 per page where possible to avoid site validation errors (fixes THEME-1292)
+- Changed header tags so there is only 1 h1 per page where possible to avoid
+  site validation errors (fixes THEME-1292)
 
 ##[1.10.3] - 2017-03-23
 #### Fixed
-- Unavailable variants that are set to be hidden when out of stock now hide in drop downs (fixes THEME-1229)
+- Unavailable variants that are set to be hidden when out of stock now hide in
+  drop downs (fixes THEME-1229)
 - Add "Show More" button for product filters to show all filters (fixes THEME-1244)
 
 ##[1.10.2] - 2017-02-23
 #### Changed
-- Clicking product options with no image returns user to the products default image (fixes THEME-1206)
+- Clicking product options with no image returns user to the products default
+  image (fixes THEME-1206)
 
 #### Fixed
 - Corrected stuttered scroll on mobile (fixes THEME-1188)
-- Cart level discounts are now visible on the product items on the cart page and in the mini cart (THEME-1217)
-- Product based option rules to change product images now applies on mobile ( fixes THEME- 1172)
+- Cart level discounts are now visible on the product items on the cart page and
+  in the mini cart (fixes THEME-1217)
+- Product based option rules to change product images now applies on mobile
+  (fixes THEME- 1172)
 - Out of stock options are now hidden (fixes THEME-1215)
 
 ##[1.10.1] - 2017-02-10
@@ -126,7 +219,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ##[1.2.1] - 2017-01-19
 #### Fixed
- - improvements to the webpack build system so local development works on Windows systems
+ - Improvements to the webpack build system so local development works on
+   Windows systems
 
 ##[1.2.0] - 2017-01-12
 #### Changed
@@ -134,7 +228,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ##[1.1.3] - 2016-12-15
 ###Fixed
-- Fixed a possible vulnerability in how search terms are rendered on the search page (fixes THEME-1173)
+- Fixed a possible vulnerability in how search terms are rendered on the search
+  page (fixes THEME-1173)
 
 ##[1.1.2] - 2016-11-24
 ### Added
@@ -150,7 +245,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Apple Pay support for checkout
 
 ### Fixed
-- Fixed an issue where product customization checkboxes would cause an error when set to required (fixes THEME-1157)
+- Fixed an issue where product customization checkboxes would cause an error
+  when set to required (fixes THEME-1157)
 - Improved layout of account orders lists on narrow screens
 
 ##[ 1.0.14 ] - 2016-09-22

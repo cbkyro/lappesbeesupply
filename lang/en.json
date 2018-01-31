@@ -422,8 +422,17 @@
       "compare": "Compare",
       "sale": "On Sale",
       "pick_one": "Pick one",
+      "none": "None",
       "quickshop": {
         "view": "Quick View"
+      },
+      "zoom": {
+        "close": "Close (Esc)",
+        "share": "Share",
+        "fullscreen": "Toggle fullscreen",
+        "zoom_action": "Zoom in/out",
+        "previous": "Previous (arrow left)",
+        "next": "Next (arrow right)"
       }
     },
     "rating": {
@@ -784,8 +793,7 @@
         "heading": "New Password",
         "password": "New Password",
         "password2": "Confirm Password",
-        "submit": "Update Password",
-        "passwords_no_match": "Your passwords do not match."
+        "submit": "Update Password"
       },
       "forgot": {
         "heading": "Forgot Password",
@@ -799,6 +807,12 @@
       "maintenance_message": "This store is currently unavailable due to maintenance. It should be available again shortly. We apologize for any inconvenience caused.",
       "hibernation_heading": "We'll be back",
       "hibernation_message": "Thanks for visiting. Our store is currently unavailable. We apologize for any inconvenience caused."
+    },
+    "forms": {
+      "passwords_no_match": "Your passwords do not match.",
+      "password_length": "Your password must be at least {min_length} characters long",
+      "max_checked": "Maximum {count, plural, one {1 option} other {# options}} allowed.",
+      "min_checked": "Please select {count, plural, one {an option} other {# or more options}}."
     }
   }
 }

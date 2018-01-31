@@ -74,6 +74,7 @@ export default class GiftCertificates {
       return false;
     }
 
-    return /^[A-Z0-9]{3}\-[A-Z0-9]{3}\-[A-Z0-9]{3}\-[A-Z0-9]{3}$/.exec(code);
+    // Add any custom gift certificate validation logic here
+    return true;
   }
 }

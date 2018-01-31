@@ -4,13 +4,8 @@
       <header class="product-reviews-header">
         <h2 class="reviews-title">{{lang 'product.reviews.heading'}}</h2>
 
-        <div class="product-details-rating"
-          itemprop="aggregateRating"
-          itemscope
-          itemtype="http://schema.org/AggregateRating">
+        <div class="product-details-rating">
           {{#if settings.show_product_rating}}
-            <meta itemprop="ratingValue" content="{{product.rating}}">
-            <meta itemprop="ratingCount" content="{{product.num_reviews}}">
             {{#if product.rating '>' 0}}
               {{lang 'product.reviews.total_rating' rating=product.rating numRatings=product.reviews.total}}
             {{else}}

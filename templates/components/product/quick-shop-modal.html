@@ -58,13 +58,6 @@
     {{! Messages }}
     <div data-product-message></div>
 
-    {{! Messages }}
-    {{#unless product.out_of_stock_message}}
-      <link itemprop="availability" href="http://schema.org/InStock">
-    {{else}}
-      <link itemprop="availability" href="http://schema.org/OutOfStock">
-    {{/unless}}
-
     {{! Add to Cart Form }}
     {{> components/product/add-to-cart-form quickshop=true}}
   </div>

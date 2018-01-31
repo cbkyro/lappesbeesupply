@@ -11,19 +11,7 @@
 }}
 {{#if price}}
 
-  <span class="price {{> components/common/price-class}}"
-    itemprop="offers"
-    itemscope
-    itemtype="http://schema.org/Offer">
-
-    {{#if schema_org}}
-      <meta itemprop="priceCurrency" content="{{currency_selector.active_currency_code}}">
-      {{#if price.without_tax}}
-        <meta itemprop="price" content="{{price.without_tax.value}}">
-      {{else}}
-        <meta itemprop="price" content="{{price.with_tax.value}}">
-      {{/if}}
-    {{/if}}
+  <span class="price {{> components/common/price-class}}">
 
     {{#if price.with_tax}}
       <span class="price-withtax" data-price="with-tax">

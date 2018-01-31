@@ -8,6 +8,7 @@ import {init as minCartInit} from './components/minCart';
 import QuickShop from './components/QuickShop';
 import QuickSearch from './components/QuickSearch';
 import miniSearch from './components/searchBox';
+import './core/selectOption';
 
 export default class Global extends PageManager {
   constructor() {

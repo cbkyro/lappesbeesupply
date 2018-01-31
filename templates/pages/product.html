@@ -13,8 +13,6 @@ product:
 
   {{> components/product/details}}
 
-  {{> components/product/info-tabs }}
-
   {{> components/product/reviews}}
 
   {{> components/product-lists/sidebar-list
@@ -22,6 +20,9 @@ product:
     products=product.related_products
     image-ratio=theme_settings.image_ratio_grid
   }}
+
+  {{> core/structured-data/product}}
+  {{> core/structured-data/product-reviews}}
 
 {{/partial}}
 {{> layout/base}}

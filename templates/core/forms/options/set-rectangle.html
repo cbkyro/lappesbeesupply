@@ -20,5 +20,17 @@
         <span class="rectangle-text form-label-text">{{label}}</span>
       </label>
     {{/each}}
+    {{#unless required}}
+      <label class="form-label rectangle">
+        <input
+          class="form-input form-rectangle"
+          name="attribute[{{../id}}]"
+          type="radio"
+          value="0"
+          {{#if selected}}checked{{/if}}
+          aria-required="{{required}}">
+        <span class="rectangle-text form-label-text">{{lang 'core.product.none'}}</span>
+      </label>
+    {{/unless}}
   </div>
 </div>

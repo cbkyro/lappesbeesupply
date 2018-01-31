@@ -1,1 +1,1 @@
-{"checkout.scss":"/*! Theme: Exhibit v1.11.1 */\n// Style overrides for the checkout pages belong in here.\n\n#LogoImage {\n  max-width: 250px;\n  max-height: 200px;\n}\n\n"}
+{"checkout.scss":"/*! Theme: Exhibit v1.12.3 */\n// Style overrides for the checkout pages belong in here.\n\n#LogoImage {\n  max-width: 250px;\n  max-height: 200px;\n}\n\n"}

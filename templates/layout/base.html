@@ -5,6 +5,7 @@
 <html class="no-js" lang="{{ locale_name }}">
 <!--<![endif]-->
 <head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
   <title>{{head.title}}</title>
 
@@ -23,6 +24,8 @@
   {{inject 'themeImageSizes' theme_images}}
   {{> components/global-injects}}
   {{{snippet 'html_head'}}}
+
+  {{> core/structured-data/website}}
 </head>
 
 <body class="page-{{page_type}}
@@ -53,6 +56,9 @@
   </div>
 
   <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+
+  {{> core/structured-data/breadcrumbs}}
+
   <script>
       window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
   </script>
@@ -61,6 +67,5 @@
     {{{footer.scripts}}}
   </div>
   {{{snippet 'footer'}}}
- 
 </body>
 </html>

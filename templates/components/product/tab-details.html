@@ -107,7 +107,7 @@
             <span class="product-details-title">
               {{lang 'product.details.sku'}}:
             </span>
-            <span class="product-details-info" itemprop="sku" data-product-sku>
+            <span class="product-details-info" data-product-sku>
               {{{product.sku}}}
             </span>
           </div>
@@ -164,19 +164,18 @@
                 {{name}}:
               </span>
               <span class="product-details-info">
-                {{value}}
+                {{{value}}}
               </span>
             </div>
           {{/each}}
         {{/if}}
 
-      {{#if product.bulk_discount_rates.length}}
+        {{#if product.bulk_discount_rates.length}}
           <div class="product-detail-item product-detail-discount">
-            <span class="product-details-title product-details-bulk-discount">
-              {{lang 'Bulk Pricing'}}
-              <p>&nbsp;</p>
+            <span class="product-details-title product-details-bulk-pricing">
+              {{lang 'product.bulk_pricing.title'}}
             </span>
-                        {{#each product.bulk_discount_rates}}
+            {{#each product.bulk_discount_rates}}
               <span class="product-details-info">
                 {{lang 'product.bulk_pricing.range' min=min max=max}}
                 {{#if type "===" "percent"}}
@@ -188,7 +187,6 @@
                 {{#if type "===" "price"}}
                   {{lang 'product.bulk_pricing.price' discount=discount.formatted}}
                 {{/if}}
-                
               </span>
             {{/each}}
           </div>
@@ -197,8 +195,3 @@
     </div>
   </section>
 {{/or}}
-    </div>
-
-    </div>
-  </section>
-

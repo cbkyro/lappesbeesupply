@@ -1,11 +1,10 @@
-
-
 <section class="product-info-wrapper"
   data-product-container
   data-product-details
-  data-product-title="{{product.title}}">
-    
-     <div class="product-information">
+  data-product-title="{{product.title}}"
+>
+
+  <div class="product-information">
     <div class="product-inner">
       <div class="first-product-image" data-images-primary>
         {{#each (limit product.images 1)}}
@@ -18,31 +17,52 @@
       {{{snippet 'product_details'}}}
 
       {{#if product.brand.name}}
-        <a class="product-brand" href="{{product.brand.url}}">{{product.brand.name}}</a>
+        <a class="product-brand" href="{{product.brand.url}}">
+          {{product.brand.name}}
+        </a>
       {{/if}}
 
-      <h1 class="product-title" data-product-title="{{product.title}}">{{product.title}}</h1>
+      <h1 class="product-title" data-product-title="{{product.title}}">
+        {{product.title}}
+      </h1>
 
-      {{> components/product/price price=product.price schema_org=true show_savings=true}}
+      {{> components/product/price
+        price=product.price
+        show_savings=true
+      }}
+
       {{#if product.call_for_price}}
-        <p class="product-call-for-price">{{product.call_for_price}}</p>
+        <p class="product-call-for-price">
+          {{product.call_for_price}}
+        </p>
       {{/if}}
 
-      {{!> components/product/info-tabs }}
+      {{#if theme_settings.product_form_above}}
 
-      <div data-product-message></div>
+        <div data-product-message></div>
 
-      {{#if product.release_date}}
-        <div class="alert alert-info" role="alert">{{{product.release_date}}}</div>
-      {{/if}}
+        {{#if product.release_date}}
+          <div class="alert alert-info" role="alert">
+            {{{product.release_date}}}
+          </div>
+        {{/if}}
 
-      {{#unless product.out_of_stock_message}}
-        <link itemprop="availability" href="http://schema.org/InStock">
+        {{> components/product/add-to-cart-form}}
+
+        {{> components/product/info-tabs}}
       {{else}}
-        <link itemprop="availability" href="http://schema.org/OutOfStock">
-      {{/unless}}
+        {{> components/product/info-tabs}}
 
-      {{> components/product/add-to-cart-form}}
+        <div data-product-message></div>
+
+        {{#if product.release_date}}
+          <div class="alert alert-info" role="alert">
+            {{{product.release_date}}}
+          </div>
+        {{/if}}
+
+        {{> components/product/add-to-cart-form}}
+      {{/if}}
 
       {{!-- Social sharing --}}
       {{> components/common/share-links

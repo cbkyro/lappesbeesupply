@@ -1,4 +1,4 @@
-/*! Theme: Exhibit v1.11.1 */
+/*! Theme: Exhibit v1.12.3 */
 // ================================================================ */
 // Libraries / External Imports
 
@@ -5717,7 +5717,14 @@ input[type=file] {
   color: $color-problem;
 }
 
-.required-text { color: $color-problem; }
+.required-text {
+  display: none;
+  color: $color-problem;
+
+  .form-required & {
+    display: inline-block;
+  }
+}
 
 // ================================================================ */
 // Custom Checkboxes and Radios
@@ -6181,6 +6188,24 @@ button {
 
 // ---------------------------------------------------------------- */
 // Components - At a modular level - styles for individual 'things'
+
+/* scss-combine:core/swatch */
+// none swatch value for non-required swatches
+.form-field-swatch {
+  .swatch-none {
+    .swatch {
+      overflow: hidden;
+      border: 1px solid rgba(#000, 0.15);
+
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
 
 /* scss-combine:components/svg */
 
@@ -8836,7 +8861,6 @@ input[type=checkbox] + .compare-label-text {
   }
 }
 
-
 .product-information {
   padding: ($pad-vertical * 2) rem-calc(20) 0 0;
 
@@ -9206,8 +9230,6 @@ Stylesheet imported (with some content removed) from Flickity Library.
 }
 
 .product-info-wrapper { position: relative;}
-.product-tabs-wrapper { padding: 0 1.875rem; }
-
 
 /* scss-combine:components/add-to-cart-form */
 // ================================================================ */
@@ -10791,6 +10813,10 @@ $auth-font-size: $account-font-size !default;
         padding-right: 0;
         padding-left: $account-gutter-inner;
       }
+
+      &:nth-of-type(2n + 1){
+        clear: left;
+      }
     }
   }
 
@@ -11306,6 +11332,10 @@ $auth-font-size: $account-font-size !default;
         padding-right: 0;
         padding-left: $account-gutter-inner;
       }
+
+      &:nth-of-type(2n + 1) {
+        clear: left;
+      }
     }
   }
 }
@@ -11681,9 +11711,6 @@ $auth-font-size: $account-font-size !default;
   .page-wrap {
     left: 0 !important;
   }
-  
-
- 
 }
 
 // ================================================================ */

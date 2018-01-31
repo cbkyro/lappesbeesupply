@@ -207,34 +207,43 @@ export default class ProductUtils {
   }
 
   _disableAttribute($attribute, behavior, outOfStockMessage) {
+    if (this._getAttributeType($attribute) === 'set-select') {
+      return this.disableSelectOptionAttribute($attribute, behavior, outOfStockMessage);
+    }
+
     if (behavior === 'hide_option') {
       $attribute.hide();
-
-      if (this._getAttributeType($attribute) === 'set-select') {
-        $attribute.attr('disabled', true);
-      }
     } else {
-      if (this._getAttributeType($attribute) === 'set-select') {
-        $attribute.html($attribute.html().replace(outOfStockMessage, '') + outOfStockMessage);
-      } else {
-        $attribute.addClass('option-unavailable');
-      }
+      $attribute.addClass('option-unavailable');
+    }
+  }
+
+  disableSelectOptionAttribute($attribute, behavior, outOfStockMessage) {
+    if (behavior === 'hide_option') {
+      $attribute.toggleOption(false);
+    } else {
+      $attribute.attr('disabled', 'disabled');
+      $attribute.html($attribute.html().replace(outOfStockMessage, '') + outOfStockMessage);
     }
   }
 
   _enableAttribute($attribute, behavior, outOfStockMessage) {
+    if (this._getAttributeType($attribute) === 'set-select') {
+      return this.enableSelectOptionAttribute($attribute, behavior, outOfStockMessage);
+    }
     if (behavior === 'hide_option') {
       $attribute.show();
-
-      if (this._getAttributeType($attribute) === 'set-select') {
-        $attribute.removeAttr('disabled');
-      }
     } else {
-      if (this._getAttributeType($attribute) === 'set-select') {
-        $attribute.html($attribute.html().replace(outOfStockMessage, ''));
-      } else {
-        $attribute.removeClass('option-unavailable');
-      }
+      $attribute.removeClass('option-unavailable');
+    }
+  }
+
+  enableSelectOptionAttribute($attribute, behavior, outOfStockMessage) {
+    if (behavior === 'hide_option') {
+      $attribute.toggleOption(true);
+    } else {
+      $attribute.removeAttr('disabled');
+      $attribute.html($attribute.html().replace(outOfStockMessage, ''));
     }
   }
 
