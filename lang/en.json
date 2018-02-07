@@ -293,7 +293,9 @@
       "range": "From {min} to {max} -- ",
       "percent": "Discount per item ({discount})",
       "fixed": "Discount per item ({discount})",
-      "price": "Discount per item ({discount})"
+      "price": "Discount per item ({discount})",
+      "qty": "{min} - {max}",
+      "price2": "{discount}"
     },
     "details": {
       "title": "Details",

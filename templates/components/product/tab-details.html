@@ -171,28 +171,28 @@
         {{/if}}
 
       {{#if product.bulk_discount_rates.length}}
-          <div class="product-detail-item product-detail-discount">
-            <span class="product-details-title product-details-bulk-discount">
-              {{lang 'Bulk Pricing'}}
-              <p>&nbsp;</p>
+        <div class="product-detail-item product-detail-discount">
+          <span class="product-details-title product-details-bulk-discount">
+            {{lang 'Bulk Pricing'}}
+            <!-- <p>&nbsp;</p> --><br>
+          </span>
+                      {{#each product.bulk_discount_rates}}
+            <span class="product-details-info">
+              {{lang 'product.bulk_pricing.range' min=min max=max}}
+              {{#if type "===" "percent"}}
+                {{lang 'product.bulk_pricing.percent' discount=discount.formatted}}
+              {{/if}}
+              {{#if type "===" "fixed"}}
+                {{lang 'product.bulk_pricing.fixed' discount=discount.formatted}}
+              {{/if}}
+              {{#if type "===" "price"}}
+                {{lang 'product.bulk_pricing.price' discount=discount.formatted}}
+              {{/if}}
+              
             </span>
-                        {{#each product.bulk_discount_rates}}
-              <span class="product-details-info">
-                {{lang 'product.bulk_pricing.range' min=min max=max}}
-                {{#if type "===" "percent"}}
-                  {{lang 'product.bulk_pricing.percent' discount=discount.formatted}}
-                {{/if}}
-                {{#if type "===" "fixed"}}
-                  {{lang 'product.bulk_pricing.fixed' discount=discount.formatted}}
-                {{/if}}
-                {{#if type "===" "price"}}
-                  {{lang 'product.bulk_pricing.price' discount=discount.formatted}}
-                {{/if}}
-                
-              </span>
-            {{/each}}
-          </div>
-        {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
 
     </div>
   </section>

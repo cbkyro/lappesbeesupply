@@ -26,6 +26,27 @@
       {{> components/product/price price=product.price schema_org=true show_savings=true}}
       {{#if product.call_for_price}}
         <p class="product-call-for-price">{{product.call_for_price}}</p>
+
+      {{/if}}
+      {{#if product.bulk_discount_rates.length}}
+        {{#each product.bulk_discount_rates}}
+          {{#if type "===" "fixed"}}
+            <div class="product-detail-item product-detail-discount">
+              <span class="product-details-title product-details-bulk-discount">
+                Qty
+              </span>
+              <span class="product-details-title product-details-bulk-discount" style="margin-left: 40px;">
+                Price
+              </span><br>
+              <span class="product-details-info">
+                {{lang 'product.bulk_pricing.qty' min=min max=max}}
+                <span style="margin-left: 30px;">
+                  {{lang 'product.bulk_pricing.price2' discount=discount.formatted}}
+                </span>
+              </span>
+            </div>
+          {{/if}}
+        {{/each}}
       {{/if}}
 
       {{!> components/product/info-tabs }}
