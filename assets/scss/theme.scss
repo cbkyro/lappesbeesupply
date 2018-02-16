@@ -8991,6 +8991,10 @@ input[type=checkbox] + .compare-label-text {
 .product-detail-item:not(:last-child) {
   margin-bottom: 1em;
 }
+.product-detail-item{ 
+  max-width: 140px;
+  .details-right { float: right; }
+}
 
 .product-details-title,
 .product-details-info:not(:last-child) {
